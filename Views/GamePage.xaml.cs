@@ -17,4 +17,18 @@ public partial class GamePage : ContentPage
 	{
 		throw  new NotImplementedException();
 	}
+
+	private void OnTailsClicked(object sender, EventArgs e)
+	{
+		throw new NotImplementedException();
+	}
+	private void OnHeadsClicked(object sender, EventArgs e)
+	{
+		throw new NotImplementedException();
+	}
+
+	private void OnTossCoinClicked(object sender, EventArgs e)
+	{
+		throw new NotImplementedException();
+	}
 }
