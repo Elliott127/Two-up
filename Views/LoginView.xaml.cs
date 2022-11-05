@@ -10,21 +10,14 @@ public partial class LoginView : ContentPage
 	}
     private async void OnLoginClicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync("GamePage");
+        username = UsernameEntry.Text;
+        password = PasswordEntry.Text;
+        await Navigation.PushAsync(new GamePage());
     }
 
-    private void OnSignupClicked(object sender, EventArgs e)
+    private async void OnSignupClicked(object sender, EventArgs e)
     {
-
+        await Navigation.PushAsync(new SignupView());
     }
-
-    private void OnUsernameChanged(object sender, TextChangedEventArgs e)
-    {
-        username = e.NewTextValue;
-    }
-
-    private void OnPasswordChanged(object sender, TextChangedEventArgs e)
-    {
-        password = e.NewTextValue.ToString();
-    }
+    
 }

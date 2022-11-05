@@ -41,11 +41,11 @@
                     <VerticalStackLayout Padding="30">
                         <VerticalStackLayout Padding="10">
                             <Label Text="Username:" Style="{StaticResource loginLabel}"/>
-                            <Entry FontSize="18" WidthRequest="300" TextChanged="OnUsernameChanged" Placeholder="Enter Username" ClearButtonVisibility="WhileEditing"/>
+                            <Entry x:Name="UsernameEntry" FontSize="18" WidthRequest="300" Placeholder="Enter Username" ClearButtonVisibility="WhileEditing"/>
                         </VerticalStackLayout>
                         <VerticalStackLayout Padding="10">
                             <Label Text="Password:" Style="{StaticResource loginLabel}"/>
-                            <Entry FontSize="18" WidthRequest="300" TextChanged="OnPasswordChanged" IsPassword="True" ClearButtonVisibility="WhileEditing"/>
+                            <Entry x:Name="PasswordEntry" FontSize="18" WidthRequest="300" IsPassword="True" ClearButtonVisibility="WhileEditing" Completed="OnLoginClicked"/>
                         </VerticalStackLayout>
                         <HorizontalStackLayout Padding="10" HorizontalOptions="Center">
                             <Button Text="Login" Clicked="OnLoginClicked"/>

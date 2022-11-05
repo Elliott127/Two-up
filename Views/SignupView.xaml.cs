@@ -1,6 +1,6 @@
 namespace Game.Views;
 
-public partial class SignupView : ContentView
+public partial class SignupView : ContentPage
 {
 	public SignupView()
 	{
