@@ -2,6 +2,12 @@ namespace Game.Views;
 
 public partial class GamePage : ContentPage
 {
+	private int score;
+	private int Score
+	{
+		get { return score; }
+		set { score = value; }
+	}
 	public GamePage()
 	{
 		InitializeComponent();
@@ -10,9 +16,10 @@ public partial class GamePage : ContentPage
 
 	public void UpdateScore(int score)
 	{
-		ScoreLabel.Text = $"Score: {score}";
+		Score = score;
+		ScoreLabel.Text = $"Score: {Score}";
 	}
-
+	
 	public void SetDarkMode()
 	{
 		throw  new NotImplementedException();
