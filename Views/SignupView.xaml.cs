@@ -6,4 +6,9 @@ public partial class SignupView : ContentPage
 	{
 		InitializeComponent();
 	}
+
+	private void OnCreateUserClicked(object sender, EventArgs e)
+	{
+		throw new NotImplementedException();
+	}
 }

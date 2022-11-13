@@ -64,6 +64,7 @@
             </VerticalStackLayout>
         </Border>
         <Button
-            Text="Create User"/>
+            Text="Create User"
+            Clicked="OnCreateUserClicked"/>
     </VerticalStackLayout>
 </ContentPage>
