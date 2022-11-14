@@ -1,15 +1,13 @@
-﻿using Game.Repo;
+﻿using Game.Services;
 using Game.Views;
 
 namespace Game;
 
 public partial class App : Application
 {
-	public static UserRepo UserRep { get; private set; }
-	public App(UserRepo repo)
+	public App()
 	{
 		InitializeComponent();
-		MainPage = new NavigationPage(new LoginView());
-		UserRep = repo;
+		MainPage = new AppShell();
 	}
 }

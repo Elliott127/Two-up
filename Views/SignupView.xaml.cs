@@ -1,14 +1,12 @@
+using Game.ViewModels;
+
 namespace Game.Views;
 
 public partial class SignupView : ContentPage
 {
-	public SignupView()
+	public SignupView(SignupViewModel viewModel)
 	{
 		InitializeComponent();
-	}
-
-	private void OnCreateUserClicked(object sender, EventArgs e)
-	{
-		throw new NotImplementedException();
+		this.BindingContext = viewModel;
 	}
 }

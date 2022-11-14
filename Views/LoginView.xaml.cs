@@ -17,7 +17,7 @@ public partial class LoginView : ContentPage
 
     private async void OnSignupClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new SignupView());
+        await Shell.Current.GoToAsync(nameof(SignupView), true);
     }
     
 }

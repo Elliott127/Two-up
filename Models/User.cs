@@ -1,14 +1,16 @@
 ﻿using SQLite;
+using System.Security.Cryptography;
+
 namespace Game.Models
 {
     [Table("user")]
-    internal class User
+    public class User
     {
         [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
+        public int UserId { get; set; }
         [MaxLength(50), Unique]
         public string Username { get; set; }
         [MaxLength(50)]
-        public string Password { get; set; }
+        public Rfc2898DeriveBytes Password { private get; set; }
     }
 }

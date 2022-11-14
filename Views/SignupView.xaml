@@ -1,70 +1,86 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Game.Views.SignupView">
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:Game.ViewModels"
+    x:Class="Game.Views.SignupView"
+    x:DataType="viewModels:SignupViewModel">
+    
     <ContentPage.Resources>
-        <Style TargetType="Button">
-            <Setter Property="WidthRequest" Value="120"/>
-            <Setter Property="Padding" Value="10"/>
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Margin" Value="10"/>
+
+        <Style
+            TargetType="Label">
+            <Setter
+                Property="Padding"
+                Value="10" />
+            <Setter
+                Property="FontSize"
+                Value="18" />
+            <Setter
+                Property="HorizontalOptions"
+                Value="Center" />
+            <Setter
+                Property="VerticalOptions"
+                Value="Center" />
+        </Style>
+        <Style
+            TargetType="Entry">
+            <Setter
+                Property="WidthRequest"
+                Value="200" />
+            <Setter
+                Property="VerticalOptions"
+                Value="Center" />
+            <Setter
+                Property="HorizontalOptions"
+                Value="Center" />
+            <Setter
+                Property="FontSize"
+                Value="18" />
         </Style>
     </ContentPage.Resources>
     <VerticalStackLayout>
         <Border
             MaximumHeightRequest="150"
             MaximumWidthRequest="500"
-            VerticalOptions="Center" 
+            VerticalOptions="Center"
             HorizontalOptions="Center"
             Margin="30">
             <Label
                 Text="Create a User"
                 FontAttributes="Bold"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
                 FontSize="38"
-                Margin="20"/>
+                Margin="20" />
         </Border>
         <Border
             MaximumHeightRequest="350"
             MaximumWidthRequest="500"
             Padding="40">
-            
+
             <VerticalStackLayout>
                 <Label
-                    Text="Username: "
-                    FontSize="18"
-                    Padding="10"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
-                    />
+                    Text="Enter Username and Password" />
+                <Label
+                    Text="Username:" />
                 <Entry
                     Placeholder="Enter a Username"
-                    FontSize="18"
                     x:Name="Username"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
-                    WidthRequest="200" 
-                    />
+                    Text="{Binding Username}" />
                 <Label
-                    Text="Password: "
-                    FontSize="18"
-                    Padding="10"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center" 
-                   />
-                <Entry 
+                    Text="Password:" />
+                <Entry
                     IsPassword="True"
                     x:Name="Password"
-                    FontSize="18"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
-                    WidthRequest="200" 
-                   />
+                    Text="{Binding Password}" />
             </VerticalStackLayout>
         </Border>
         <Button
             Text="Create User"
-            Clicked="OnCreateUserClicked"/>
+            Command="{Binding CreateUserCommand}" />
+
+        <Label 
+            IsVisible="{Binding ShowPasswordIncorrectError}"
+            Text="Password must be greater than 4 characters"
+            TextColor="Red" />
     </VerticalStackLayout>
 </ContentPage>

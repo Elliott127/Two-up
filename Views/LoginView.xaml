@@ -32,7 +32,7 @@
             Padding="30,0"
             VerticalOptions="Center">
             <VerticalStackLayout>
-                <Border WidthRequest="700" Padding="10" BackgroundColor="#F5F5F5" StrokeThickness="5">
+                <Border WidthRequest="700" Padding="10" StrokeThickness="5">
                     <Label Style="{StaticResource loginPageTitle}" Text="Login to play Two-up"/>
                 </Border>
             </VerticalStackLayout>
@@ -54,7 +54,6 @@
                     </VerticalStackLayout>
                 </Border>
             </VerticalStackLayout>
-
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Game.Services;
+using Game.ViewModels;
+using Game.Views;
 
 namespace Game;
 
@@ -18,9 +16,13 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
-		string dbPath = FileAccessHelper.GetLocalFilePath("Users.db3");
 
+		builder.Services.AddTransient<SignupView>();
 
-		return builder.Build();
+		builder.Services.AddTransient<SignupViewModel>();
+	
+		builder.Services.AddSingleton<IUserService, UserService>();
+
+        return builder.Build();
 	}
 }
