@@ -11,6 +11,6 @@ namespace Game.Models
         [MaxLength(50), Unique]
         public string Username { get; set; }
         [MaxLength(50)]
-        public Rfc2898DeriveBytes Password { private get; set; }
+        public string Password { private get; set; }
     }
 }

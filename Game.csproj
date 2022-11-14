@@ -67,6 +67,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Resources\CustomStyles\LoginStyles.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Resources\CustomStyles\SignupStyles.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

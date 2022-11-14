@@ -28,7 +28,7 @@ namespace Game.Services
 
                 Rfc2898DeriveBytes pass = new(password, 2);
 
-                result = await conn.InsertAsync(new User { Username = name, Password = pass });
+                result = await conn.InsertAsync(new User { Username = name, Password = pass.ToString() });
 
                 StatusMessage = string.Format("{0} record(s) added (Name: {1})", result, name);
             }
@@ -36,6 +36,21 @@ namespace Game.Services
             {
                 StatusMessage = string.Format("Failed to add {0}. Error: {1}", name, ex.Message);
 
+            }
+        }
+
+        public async Task CheckPassword(string Username, string password)
+        {
+            int result = 0;
+            try
+            {
+                await Init();
+                result = 1;
+                await conn.Table<User>().ToListAsync();
+            }
+            catch(Exception ex)
+            {
+                StatusMessage = "Woah buddy slow down " + ex.Message + result;
             }
         }
 

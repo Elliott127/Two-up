@@ -5,39 +5,13 @@
     xmlns:viewModels="clr-namespace:Game.ViewModels"
     x:Class="Game.Views.SignupView"
     x:DataType="viewModels:SignupViewModel">
-    
     <ContentPage.Resources>
-
-        <Style
-            TargetType="Label">
-            <Setter
-                Property="Padding"
-                Value="10" />
-            <Setter
-                Property="FontSize"
-                Value="18" />
-            <Setter
-                Property="HorizontalOptions"
-                Value="Center" />
-            <Setter
-                Property="VerticalOptions"
-                Value="Center" />
-        </Style>
-        <Style
-            TargetType="Entry">
-            <Setter
-                Property="WidthRequest"
-                Value="200" />
-            <Setter
-                Property="VerticalOptions"
-                Value="Center" />
-            <Setter
-                Property="HorizontalOptions"
-                Value="Center" />
-            <Setter
-                Property="FontSize"
-                Value="18" />
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary
+                    Source="../Resources/CustomStyles/SignupStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </ContentPage.Resources>
     <VerticalStackLayout>
         <Border
