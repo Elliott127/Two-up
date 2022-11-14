@@ -1,6 +1,6 @@
 namespace Game.Views;
 
-public partial class GameView : ContentPage
+public partial class GamePage : ContentPage
 {
 	private int score;
 	private int Score
@@ -8,7 +8,7 @@ public partial class GameView : ContentPage
 		get { return score; }
 		set { score = value; }
 	}
-	public GameView()
+	public GamePage()
 	{
 		InitializeComponent();
 		UpdateScore(0);

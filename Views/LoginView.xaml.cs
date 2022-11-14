@@ -1,14 +1,23 @@
-using Game.ViewModels;
-
 namespace Game.Views;
 
 public partial class LoginView : ContentPage
 {
-	public LoginView(LoginViewModel viewModel)
+    string username;
+    string password;
+	public LoginView()
 	{
 		InitializeComponent();
-        this.BindingContext = viewModel;
 	}
-    
+    private async void OnLoginClicked(object sender, EventArgs e)
+    {
+        username = UsernameEntry.Text;
+        password = PasswordEntry.Text;
+        await Navigation.PushAsync(new GamePage());
+    }
+
+    private async void OnSignupClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(SignupView), true);
+    }
     
 }

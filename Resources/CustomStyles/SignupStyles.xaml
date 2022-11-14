@@ -1,58 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<?xaml-comp compile="true" ?>
-<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="Game.Resources.CustomStyles.SignupStyles">
-    <Style
-        TargetType="Button">
-        <Setter
-            Property="WidthRequest"
-            Value="120" />
-        <Setter
-            Property="Padding"
-            Value="10" />
-        <Setter
-            Property="FontSize"
-            Value="16" />
-        <Setter
-            Property="Margin"
-            Value="10" />
-        <Setter
-            Property="BackgroundColor"
-            Value="#4c00b0" />
-        <Setter 
-            Property="TextColor"
-            Value="White" />
-    </Style>
-    <Style
-        TargetType="Label">
-        <Setter
-            Property="Padding"
-            Value="10" />
-        <Setter
-            Property="FontSize"
-            Value="18" />
-        <Setter
-            Property="HorizontalOptions"
-            Value="Center" />
-        <Setter
-            Property="VerticalOptions"
-            Value="Center" />
-    </Style>
-    <Style
-        TargetType="Entry">
-        <Setter
-            Property="WidthRequest"
-            Value="200" />
-        <Setter
-            Property="VerticalOptions"
-            Value="Center" />
-        <Setter
-            Property="HorizontalOptions"
-            Value="Center" />
-        <Setter
-            Property="FontSize"
-            Value="18" />
-    </Style>
+<?xaml-comp compile="true" ?>    
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Game.Resources.CustomStyles.SignupStyles">
+
 </ResourceDictionary>

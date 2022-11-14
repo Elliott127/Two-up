@@ -1,74 +1,55 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:viewModels="clr-namespace:Game.ViewModels"
-    x:Class="Game.Views.LoginView"
-    x:DataType="viewModels:LoginViewModel">
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Game.Views.LoginView">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary
-                    Source="../Resources/CustomStyles/LoginStyles.xaml" />
-            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="loginPageTitle"
+                   TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="FontSize" Value="42"/>
+                <Setter Property="Padding" Value="10"/>
+            </Style>
+            <Style x:Key="loginLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="Padding" Value="10"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="WidthRequest" Value="100"/>
+                <Setter Property="Padding" Value="10"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="Margin" Value="25,10,25,10"/>
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
+
     <ScrollView>
         <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">
             <VerticalStackLayout>
-                <Border
-                    WidthRequest="700"
-                    Padding="10"
-                    StrokeThickness="5">
-                    <Label
-                        Style="{StaticResource loginPageTitle}"
-                        Text="Login to play Two-up" />
+                <Border WidthRequest="700" Padding="10" StrokeThickness="5">
+                    <Label Style="{StaticResource loginPageTitle}" Text="Login to play Two-up"/>
                 </Border>
             </VerticalStackLayout>
             <VerticalStackLayout>
-                <Border
-                    WidthRequest="700"
-                    HeightRequest="400">
-                    <VerticalStackLayout
-                        Padding="30">
-                        <VerticalStackLayout
-                            Padding="10">
-                            <Label
-                                Text="Username:"
-                                Style="{StaticResource loginLabel}" />
-                            <Entry
-                                x:Name="UsernameEntry"
-                                FontSize="18"
-                                WidthRequest="300"
-                                Placeholder="Enter Username"
-                                Text="{Binding Username}"/>
+                <Border WidthRequest="700" HeightRequest="400">
+                    <VerticalStackLayout Padding="30">
+                        <VerticalStackLayout Padding="10">
+                            <Label Text="Username:" Style="{StaticResource loginLabel}"/>
+                            <Entry x:Name="UsernameEntry" FontSize="18" WidthRequest="300" Placeholder="Enter Username" ClearButtonVisibility="WhileEditing"/>
                         </VerticalStackLayout>
-                        <VerticalStackLayout
-                            Padding="10">
-                            <Label
-                                Text="Password:"
-                                Style="{StaticResource loginLabel}" />
-                            <Entry
-                                x:Name="PasswordEntry"
-                                FontSize="18"
-                                WidthRequest="300"
-                                IsPassword="True"
-                                Text="{Binding Password}"
-                                 />
+                        <VerticalStackLayout Padding="10">
+                            <Label Text="Password:" Style="{StaticResource loginLabel}"/>
+                            <Entry x:Name="PasswordEntry" FontSize="18" WidthRequest="300" IsPassword="True" ClearButtonVisibility="WhileEditing" Completed="OnLoginClicked"/>
                         </VerticalStackLayout>
-                        <HorizontalStackLayout
-                            Padding="10"
-                            HorizontalOptions="Center">
-                            <Button
-                                Text="Login"
-                                Command="{Binding LoginCommand}" />
-                            <Button
-                                Text="Signup"
-                                Command="{Binding SignupCommand}" />
+                        <HorizontalStackLayout Padding="10" HorizontalOptions="Center">
+                            <Button Text="Login" Clicked="OnLoginClicked"/>
+                            <Button Text="Signup" Clicked="OnSignupClicked"/>
                         </HorizontalStackLayout>
                     </VerticalStackLayout>
                 </Border>
