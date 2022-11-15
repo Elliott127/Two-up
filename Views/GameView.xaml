@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Game.Views.GameView">
+             xmlns:viewModel="clr-namespace:Game.ViewModels"
+             x:Class="Game.Views.GameView"
+             x:DataType="viewModel:GameViewModel">
     <ContentPage.Resources>
         <Style TargetType="Button">
             <Setter Property="WidthRequest" Value="100"/>
@@ -9,14 +11,14 @@
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="Margin" Value="40,40,40,20"/>
         </Style>
-        <Style x:Key="ScoreLabel" TargetType="Label">
+        <Style x:Key="ScoreLabelStyle" TargetType="Label">
             <Setter Property="FontSize" Value="24"/>
             <Setter Property="Padding" Value="25"/>
             <Setter Property="FontAttributes" Value="Bold"/>
             <Setter Property="VerticalOptions" Value="Center"/>
             <Setter Property="HorizontalOptions" Value="Center"/>
         </Style>
-        <Style x:Key="UsernameLabel" TargetType="Label">
+        <Style x:Key="UsernameLabelStyle" TargetType="Label">
             <Setter Property="FontSize" Value="18"/>
             <Setter Property="FontAttributes" Value="Bold"/>
             <Setter Property="Padding" Value="10"/>
@@ -25,23 +27,23 @@
     <ContentPage.MenuBarItems>
         <MenuBarItem Text="UI Changes">
             <MenuFlyoutItem Text="Dark Mode"
-                            Command="{Binding SetDarkMode}"/>
+                Command="{Binding SetDarkModeCommand}"/>
         </MenuBarItem>
     </ContentPage.MenuBarItems>
     
     <VerticalStackLayout>
-        <Label Style="{DynamicResource UsernameLabel}"
-               Text="Insert Username here"/>
+        <Label Style="{DynamicResource UsernameLabelStyle}"
+               Text="{Binding Username}"/>
         <Label
-            Style="{DynamicResource ScoreLabel}"
-            x:Name="ScoreLabel"/>
+            Style="{DynamicResource ScoreLabelStyle}"
+            Text="{Binding ScoreLabel}"/>
         <Border MaximumHeightRequest="400" MaximumWidthRequest="400" Padding="20">
             <Image Source="dotnet_bot.png" MaximumHeightRequest="250" MaximumWidthRequest="250"/>
         </Border>
         <HorizontalStackLayout HorizontalOptions="Center">
-            <Button Text="Heads" Clicked="OnHeadsClicked"/>
-            <Button Text="Tails" Clicked="OnTailsClicked"/>
+            <Button Text="Heads" Command="{Binding HeadsChosenCommand}"/>
+            <Button Text="Tails" Command="{Binding TailsChosenCommand}"/>
         </HorizontalStackLayout>
-        <Button Text="Toss Coin" Clicked="OnTossCoinClicked"/>
+        <Button Text="Toss Coin" Command="{Binding TossCoinCommand}"/>
     </VerticalStackLayout>
 </ContentPage>
