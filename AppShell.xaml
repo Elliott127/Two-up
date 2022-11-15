@@ -16,6 +16,9 @@
         ContentTemplate="{DataTemplate local:SignupView}"
         Route="SignupPage" />
 
-    
+    <ShellContent
+        Title="SignupPage"
+        ContentTemplate="{DataTemplate local:GameView}"
+        Route="SignupPage" />
     
 </Shell>
