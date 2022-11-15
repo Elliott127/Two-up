@@ -22,10 +22,9 @@ namespace Game.ViewModels
             this.userService= userService;
         }
 
-        public void UpdateScore(int score)
+        public void UpdateScore()
         {
-            Score = score;
-            ScoreLabel = $"Score: {Score}";
+            
         }
 
         [RelayCommand]

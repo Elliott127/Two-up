@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Game.Resources.CustomStyles.GameViewStyles">
+    <Style
+        TargetType="Button">
+        <Setter
+            Property="WidthRequest"
+            Value="100" />
+        <Setter
+            Property="Padding"
+            Value="10" />
+        <Setter
+            Property="FontSize"
+            Value="16" />
+        <Setter
+            Property="Margin"
+            Value="40,40,40,20" />
+    </Style>
+    <Style
+        x:Key="ScoreLabelStyle"
+        TargetType="Label">
+        <Setter
+            Property="FontSize"
+            Value="24" />
+        <Setter
+            Property="Padding"
+            Value="25" />
+        <Setter
+            Property="FontAttributes"
+            Value="Bold" />
+        <Setter
+            Property="VerticalOptions"
+            Value="Center" />
+        <Setter
+            Property="HorizontalOptions"
+            Value="Center" />
+    </Style>
+    <Style
+        x:Key="UsernameLabelStyle"
+        TargetType="Label">
+        <Setter
+            Property="FontSize"
+            Value="18" />
+        <Setter
+            Property="FontAttributes"
+            Value="Bold" />
+        <Setter
+            Property="Padding"
+            Value="10" />
+    </Style>
+
+</ResourceDictionary>

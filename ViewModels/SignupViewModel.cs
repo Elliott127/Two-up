@@ -10,9 +10,15 @@ namespace Game.ViewModels
 
         [ObservableProperty]
         private string username = string.Empty;
+
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(this.ShowPasswordIncorrectError))]
         private string password = string.Empty;
+
+        public SignupViewModel(IUserService userService)
+        {
+            this.userService = userService;
+        }
 
         public bool ShowPasswordIncorrectError
         {
@@ -20,12 +26,7 @@ namespace Game.ViewModels
             {
                 return this.Password.Length < 4;
             }
-        }
-
-        public SignupViewModel(IUserService userService)
-        {
-            this.userService = userService;
-        }
+        }        
 
         [RelayCommand]
         private async void CreateUser()

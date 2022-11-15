@@ -59,10 +59,14 @@
 	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 	  <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+	  <PackageReference Include="SQLitePCLRaw.core" Version="2.1.2" />
 	  <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.2" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Resources\CustomStyles\SignupViewStyles.xaml.cs">
+	    <DependentUpon>SignupViewStyles.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\GameView.xaml.cs">
 	    <DependentUpon>GameView.xaml</DependentUpon>
 	  </Compile>
@@ -75,7 +79,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Resources\CustomStyles\SignupStyles.xaml">
+	  <MauiXaml Update="Resources\CustomStyles\GameViewStyles.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Resources\CustomStyles\LoginViewStyles.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Resources\CustomStyles\SignupViewStyles.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\GameView.xaml">

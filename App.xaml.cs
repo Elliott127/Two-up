@@ -1,7 +1,4 @@
-﻿using Game.Services;
-using Game.Views;
-
-namespace Game;
+﻿namespace Game;
 
 public partial class App : Application
 {
