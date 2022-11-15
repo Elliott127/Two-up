@@ -24,7 +24,8 @@ namespace Game.ViewModels
 
         public void UpdateScore()
         {
-            
+            Console.WriteLine(scoreLabel);
+            userService.GetUser();
         }
 
         [RelayCommand]

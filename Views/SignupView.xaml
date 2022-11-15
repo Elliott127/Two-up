@@ -8,8 +8,53 @@
     x:Class="Game.Views.SignupView"
     x:DataType="viewModels:SignupViewModel">
     <ContentPage.Resources>
-        <ResourceDictionary
-            Source="../Resources/CustomStyles/SignupViewStyles.xaml" />
+        <ResourceDictionary>
+            <Style
+                TargetType="Border">
+                <Setter
+                    Property="MaximumWidthRequest"
+                    Value="500" />
+                <Setter
+                    Property="MinimumWidthRequest"
+                    Value="500" />
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="Start" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="Start" />
+            </Style>
+            <Style
+                TargetType="Label">
+                <Setter
+                    Property="Padding"
+                    Value="10" />
+                <Setter
+                    Property="FontSize"
+                    Value="18" />
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="Center" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="Center" />
+            </Style>
+            <Style
+                TargetType="Entry">
+                <Setter
+                    Property="WidthRequest"
+                    Value="200" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="Center" />
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="Center" />
+                <Setter
+                    Property="FontSize"
+                    Value="18" />
+            </Style>
+        </ResourceDictionary>
     </ContentPage.Resources>
     
     <ScrollView>
