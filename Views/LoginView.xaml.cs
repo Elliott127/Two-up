@@ -12,7 +12,7 @@ public partial class LoginView : ContentPage
     {
         username = UsernameEntry.Text;
         password = PasswordEntry.Text;
-        await Navigation.PushAsync(new GamePage());
+        await Navigation.PushAsync(new GameView());
     }
 
     private async void OnSignupClicked(object sender, EventArgs e)
