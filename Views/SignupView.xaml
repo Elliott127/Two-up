@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <?xaml-comp compile="true" ?>
-    
+
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewModels="clr-namespace:Game.ViewModels"
+    xmlns:controls="clr-namespace:Game.Controls"
     x:Class="Game.Views.SignupView"
     x:DataType="viewModels:SignupViewModel">
     <ContentPage.Resources>
@@ -23,6 +24,26 @@
                 <Setter
                     Property="VerticalOptions"
                     Value="Start" />
+                <Setter
+                    Property="StrokeShape"
+                    Value="RoundRectangle 20,20,20,20" />
+                
+            </Style>
+            <Style
+                TargetType="Border"
+                x:Key="BorderShadow">
+                <Setter
+                    Property="StrokeShape"
+                    Value="RoundRectangle 20,20,20,20" />
+                <Setter
+                    Property="Shadow">
+                    <Setter.Value>
+                        <Shadow
+                            Brush="Black"
+                            Opacity="0.9"
+                            Offset="-5,-5"/>
+                    </Setter.Value>
+                </Setter>
             </Style>
             <Style
                 TargetType="Label">
@@ -56,49 +77,56 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
+
     <ScrollView>
         <VerticalStackLayout
             VerticalOptions="Center"
             HorizontalOptions="Center">
-            <Border
-                MaximumHeightRequest="150"
-                Margin="30">
-                <Label
-                    Text="Create a User"
-                    FontAttributes="Bold"
-                    FontSize="38"
-                    Margin="20" />
-            </Border>
-            <Border
-                HorizontalOptions="Center"
-                MaximumHeightRequest="350"
-                Padding="40">
-
+            <controls:CardView
+                MinimumHeightRequest="600"
+                MinimumWidthRequest="1000">
                 <VerticalStackLayout>
-                    <Label
-                        Text="Enter Username and Password" />
-                    <Label
-                        Text="Username:" />
-                    <Entry
-                        Placeholder="Enter a Username"
-                        Text="{Binding Username}" />
-                    <Label
-                        Text="Password:" />
-                    <Entry
-                        IsPassword="True"
-                        Text="{Binding Password}" />
-                </VerticalStackLayout>
-            </Border>
-            <Button
-                Text="Create User"
-                Command="{Binding CreateUserCommand}" />
+                    <Border
+                        MaximumHeightRequest="150"
+                        Margin="30"
+                        HorizontalOptions="Center">
+                        <Label
+                            Text="Create a User"
+                            FontAttributes="Bold"
+                            FontSize="38"
+                            Margin="20" />
+                    </Border>
+                    <Border
+                        HorizontalOptions="Center"
+                        MaximumHeightRequest="350"
+                        Padding="40">
 
-            <Label
-                IsVisible="{Binding ShowPasswordIncorrectError}"
-                Text="Password must be greater than 4 characters"
-                TextColor="Red" />
+                        <VerticalStackLayout>
+                            <Label
+                                Text="Enter Username and Password" />
+                            <Label
+                                Text="Username:" />
+                            <Entry
+                                Placeholder="Enter a Username"
+                                Text="{Binding Username}" />
+                            <Label
+                                Text="Password:" />
+                            <Entry
+                                IsPassword="True"
+                                Text="{Binding Password}" />
+                        </VerticalStackLayout>
+                    </Border>
+                    <Button
+                        Text="Create User"
+                        Command="{Binding CreateUserCommand}" />
+
+                    <Label
+                        IsVisible="{Binding ShowPasswordIncorrectError}"
+                        Text="Password must be greater than 4 characters"
+                        TextColor="Red" />
+                </VerticalStackLayout>
+            </controls:CardView>
         </VerticalStackLayout>
     </ScrollView>
-    
+
 </ContentPage>
