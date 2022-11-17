@@ -45,7 +45,8 @@
                             FontSize="24"
                             Text="{Binding Outcome}"
                             FontAttributes="Bold"
-                            Padding="0,0,0,20"/>
+                            Padding="0,0,0,20"
+                            Margin="10" />
                         <Border
                             MaximumHeightRequest="400"
                             MaximumWidthRequest="400"
@@ -55,18 +56,23 @@
                                 MaximumHeightRequest="250"
                                 MaximumWidthRequest="250" />
                         </Border>
-                        <HorizontalStackLayout
-                            HorizontalOptions="Center">
+                        <VerticalStackLayout
+                            Margin="10">
+                            <HorizontalStackLayout
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center">
+                                <Button
+                                    Text="Heads"
+                                    Command="{Binding HeadsChosenCommand}" />
+                                <Button
+                                    Text="Tails"
+                                    Command="{Binding TailsChosenCommand}" />
+                            </HorizontalStackLayout>
                             <Button
-                                Text="Heads"
-                                Command="{Binding HeadsChosenCommand}" />
-                            <Button
-                                Text="Tails"
-                                Command="{Binding TailsChosenCommand}" />
-                        </HorizontalStackLayout>
-                        <Button
-                            Text="Toss Coin"
-                            Command="{Binding TossCoinCommand}" />
+                                HorizontalOptions="Center"
+                                Text="Toss Coin"
+                                Command="{Binding TossCoinCommand}" />
+                        </VerticalStackLayout>
                     </VerticalStackLayout>
                 </VerticalStackLayout>
             </controls:CardView>

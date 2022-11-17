@@ -11,34 +11,13 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style
-                TargetType="Border">
-                <Setter
-                    Property="MaximumWidthRequest"
-                    Value="500" />
-                <Setter
-                    Property="MinimumWidthRequest"
-                    Value="500" />
-                <Setter
-                    Property="HorizontalOptions"
-                    Value="Start" />
-                <Setter
-                    Property="VerticalOptions"
-                    Value="Start" />
-                <Setter
-                    Property="StrokeShape"
-                    Value="RoundRectangle 20" />
-                <Setter
-                    Property="StrokeThickness"
-                    Value="3" />
-            </Style>
-            <Style
                 TargetType="Label">
                 <Setter
                     Property="Padding"
                     Value="10" />
                 <Setter
                     Property="FontSize"
-                    Value="20" />
+                    Value="18" />
                 <Setter
                     Property="HorizontalOptions"
                     Value="Center" />
@@ -62,7 +41,7 @@
                     Value="Center" />
                 <Setter
                     Property="FontSize"
-                    Value="20" />
+                    Value="18" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -72,22 +51,20 @@
             HorizontalOptions="Center"
             VerticalOptions="Center">
             <controls:CardView
-                WidthRequest="1200"
-                HeightRequest="650">
+                WidthRequest="1000"
+                MinimumHeightRequest="700">
                 <VerticalStackLayout
+                    VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Padding="20">
-                    <Border
-                        MinimumHeightRequest="400"
-                        Margin="10"
-                        MinimumWidthRequest="600"
-                        Padding="20"
-                        StrokeThickness="3">
-                        <VerticalStackLayout>
-                            <Label
-                                Text="Create a User"
-                                FontSize="36"
-                                FontAttributes="Bold" />
+                        <Label
+                            Text="Create a User"
+                            FontSize="42"
+                            FontAttributes="Bold"
+                            Padding="0,0,0,20"
+                            TextDecorations="Underline"/>
+                        <VerticalStackLayout
+                            Margin="10">
                             <Label
                                 Text="Enter Username and Password" />
                             <Label
@@ -101,18 +78,17 @@
                                 IsPassword="True"
                                 Text="{Binding Password}" />
                             <Button
-                                FontSize="20"
+                                FontSize="18"
                                 Text="Create User"
                                 Command="{Binding CreateUserCommand}"
                                 Margin="20"
                                 CornerRadius="20"
                                 WidthRequest="140" />
+                            <Label
+                                IsVisible="{Binding ShowPasswordIncorrectError}"
+                                Text="Password must be greater than 4 characters"
+                                TextColor="Red" />
                         </VerticalStackLayout>
-                    </Border>
-                    <Label
-                        IsVisible="{Binding ShowPasswordIncorrectError}"
-                        Text="Password must be greater than 4 characters"
-                        TextColor="Red" />
                 </VerticalStackLayout>
             </controls:CardView>
         </VerticalStackLayout>
