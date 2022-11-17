@@ -16,6 +16,6 @@ namespace Game.DbModels
         public int Score { get; set; }
 
         [MaxLength(50)]
-        public Rfc2898DeriveBytes Password { private get; set; }
+        public Rfc2898DeriveBytes Password { get; set; }
     }
 }

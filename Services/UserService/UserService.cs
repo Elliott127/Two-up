@@ -17,6 +17,29 @@ namespace Game.Services
             dbPath = FileAccessHelper.GetLocalFilePath(Constants.DbFileName);
         }
 
+        public string HashPass(string pass)
+        {
+            string salt = "%$3!/>";
+            if (string.IsNullOrEmpty(pass))
+            {
+                return string.Empty;
+            }
+            using (SHA256Managed sha = new())
+            {
+
+                // Convert the string to a byte array first, to be processed
+                byte[] textBytes = System.Text.Encoding.UTF8.GetBytes(pass + salt);
+                byte[] hashBytes = sha.ComputeHash(textBytes);
+
+                // Convert back to a string, removing the '-' that BitConverter adds
+                string hash = BitConverter
+                    .ToString(hashBytes)
+                    .Replace("-", string.Empty);
+
+                return hash;
+            }
+        }
+
         public async Task AddNewUser(string name, string password)
         {
             int result;
@@ -26,9 +49,8 @@ namespace Game.Services
                 if (string.IsNullOrEmpty(name) || string.IsNullOrWhiteSpace(password))
                     throw new Exception("Valid name or password required");
 
-                Rfc2898DeriveBytes pass = new(password, 2);
 
-                result = await conn.InsertAsync(new User { Username = name, Password = pass });
+                result = await conn.InsertAsync(new User { Username = name, Password = HashPass(password) });
 
                 StatusMessage = string.Format("{0} record(s) added (Name: {1})", result, name);
             }
@@ -54,6 +76,35 @@ namespace Game.Services
             return new List<User>();
         }
 
+        public async Task<List<string>> GetUserInfo(string username)
+        {
+            List<User> users = await GetListOfUsers();
+            List<string> userInfo = new();
+            foreach (User user in users)
+            {
+                if (user.Username == username)
+                {
+                    userInfo.Add(user.Username);
+                    userInfo.Add(user.Score.ToString());
+                    return userInfo;
+                }
+            }
+            return userInfo;
+        }
+
+        public async Task<bool> CheckUserCredentials(string username, string password)
+        {
+            List<User> users = await GetListOfUsers();
+            foreach (User user in users)
+            {
+                if (username == user.Username && user.Password == HashPass(password))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private async Task Init()
         {
             if (conn != null)
@@ -61,22 +112,10 @@ namespace Game.Services
 
             conn = new SQLiteAsyncConnection(dbPath);
             await conn.CreateTableAsync<User>();
+            await conn.CreateTableAsync<Games>();
         }
-        public async Task<List<string>> GetUserInfo(string username)
-        {
-            List<User> users = await GetListOfUsers();
-            List<string> userInfo = new();
-            foreach(User user in users)
-            {
-                    if (user.Username == username)
-                    {
-                        userInfo.Add(user.Username);
-                        userInfo.Add(user.Score.ToString());
-                        return userInfo;
-                    }
-            }
-            return userInfo;
-        }
+
+        
 
     }
 }

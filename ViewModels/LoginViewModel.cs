@@ -23,7 +23,10 @@ namespace Game.ViewModels
         [RelayCommand]
         private async void Login()
         {
-            await Shell.Current.GoToAsync(nameof(GameView), true);
+            if (await userService.CheckUserCredentials(Username, Password))
+            {
+                await Shell.Current.GoToAsync(nameof(GameView), true);
+            }
         }
 
         [RelayCommand]
