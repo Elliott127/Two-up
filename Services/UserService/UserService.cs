@@ -1,5 +1,5 @@
 ﻿using SQLite;
-using Game.Models;
+using Game.DbModels;
 using System.Security.Cryptography;
 
 namespace Game.Services

@@ -1,7 +1,7 @@
 ﻿using SQLite;
 using System.Security.Cryptography;
 
-namespace Game.Models
+namespace Game.DbModels
 {
     [Table("user")]
     public class User

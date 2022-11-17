@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using TableAttribute = SQLite.TableAttribute;
 
-namespace Game.Models
+namespace Game.DbModels
 {
     [Table("game")]
     public class Game
