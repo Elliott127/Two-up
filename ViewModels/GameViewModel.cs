@@ -12,10 +12,13 @@ namespace Game.ViewModels
         private int score = 0;
 
         [ObservableProperty]
-        private string scoreLabel = string.Empty;
+        private string scoreLabel = "Score Placeholder";
 
         [ObservableProperty]
-        private string username = string.Empty;
+        private string username = "Username Placeholder";
+
+        [ObservableProperty]
+        private string outcome = "Outcome: ";
 
         public GameViewModel(IUserService userService)
         {

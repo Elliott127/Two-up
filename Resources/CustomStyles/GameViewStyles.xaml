@@ -24,19 +24,13 @@
         TargetType="Label">
         <Setter
             Property="FontSize"
-            Value="24" />
+            Value="18" />
         <Setter
             Property="Padding"
-            Value="25" />
+            Value="10,0,20,40" />
         <Setter
             Property="FontAttributes"
             Value="Bold" />
-        <Setter
-            Property="VerticalOptions"
-            Value="Center" />
-        <Setter
-            Property="HorizontalOptions"
-            Value="Center" />
     </Style>
     <Style
         x:Key="UsernameLabelStyle"
