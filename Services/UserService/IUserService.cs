@@ -6,6 +6,7 @@ namespace Game.Services
     {
         public string StatusMessage { get; set; }
         public Task AddNewUser(string name, string password);
-        public Task<List<User>> GetUser();
+        public Task<List<User>> GetListOfUsers();
+        public Task <List<string>> GetUserInfo(string username);
     }
 }

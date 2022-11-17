@@ -8,8 +8,13 @@ namespace Game.DbModels
     {
         [PrimaryKey, AutoIncrement]
         public int UserId { get; set; }
+
         [MaxLength(50), Unique]
         public string Username { get; set; }
+
+        [MaxLength(50)]
+        public int Score { get; set; }
+
         [MaxLength(50)]
         public Rfc2898DeriveBytes Password { private get; set; }
     }

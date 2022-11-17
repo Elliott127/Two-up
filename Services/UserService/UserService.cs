@@ -39,7 +39,7 @@ namespace Game.Services
             }
         }
 
-        public async Task<List<User>> GetUser()
+        public async Task<List<User>> GetListOfUsers()
         {
             try
             {
@@ -62,5 +62,21 @@ namespace Game.Services
             conn = new SQLiteAsyncConnection(dbPath);
             await conn.CreateTableAsync<User>();
         }
+        public async Task<List<string>> GetUserInfo(string username)
+        {
+            List<User> users = await GetListOfUsers();
+            List<string> userInfo = new();
+            foreach(User user in users)
+            {
+                    if (user.Username == username)
+                    {
+                        userInfo.Add(user.Username);
+                        userInfo.Add(user.Score.ToString());
+                        return userInfo;
+                    }
+            }
+            return userInfo;
+        }
+
     }
 }
