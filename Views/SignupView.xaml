@@ -26,24 +26,10 @@
                     Value="Start" />
                 <Setter
                     Property="StrokeShape"
-                    Value="RoundRectangle 20,20,20,20" />
-                
-            </Style>
-            <Style
-                TargetType="Border"
-                x:Key="BorderShadow">
+                    Value="RoundRectangle 20" />
                 <Setter
-                    Property="StrokeShape"
-                    Value="RoundRectangle 20,20,20,20" />
-                <Setter
-                    Property="Shadow">
-                    <Setter.Value>
-                        <Shadow
-                            Brush="Black"
-                            Opacity="0.9"
-                            Offset="-5,-5"/>
-                    </Setter.Value>
-                </Setter>
+                    Property="StrokeThickness"
+                    Value="3" />
             </Style>
             <Style
                 TargetType="Label">
@@ -52,19 +38,22 @@
                     Value="10" />
                 <Setter
                     Property="FontSize"
-                    Value="18" />
+                    Value="20" />
                 <Setter
                     Property="HorizontalOptions"
                     Value="Center" />
                 <Setter
                     Property="VerticalOptions"
                     Value="Center" />
+                <Setter
+                    Property="FontAttributes"
+                    Value="Bold" />
             </Style>
             <Style
                 TargetType="Entry">
                 <Setter
                     Property="WidthRequest"
-                    Value="200" />
+                    Value="300" />
                 <Setter
                     Property="VerticalOptions"
                     Value="Center" />
@@ -73,35 +62,32 @@
                     Value="Center" />
                 <Setter
                     Property="FontSize"
-                    Value="18" />
+                    Value="20" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
 
     <ScrollView>
         <VerticalStackLayout
-            VerticalOptions="Center"
-            HorizontalOptions="Center">
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
             <controls:CardView
-                MinimumHeightRequest="600"
-                MinimumWidthRequest="1000">
-                <VerticalStackLayout>
+                WidthRequest="1200"
+                HeightRequest="650">
+                <VerticalStackLayout
+                    HorizontalOptions="Center"
+                    Padding="20">
                     <Border
-                        MaximumHeightRequest="150"
-                        Margin="30"
-                        HorizontalOptions="Center">
-                        <Label
-                            Text="Create a User"
-                            FontAttributes="Bold"
-                            FontSize="38"
-                            Margin="20" />
-                    </Border>
-                    <Border
-                        HorizontalOptions="Center"
-                        MaximumHeightRequest="350"
-                        Padding="40">
-
+                        MinimumHeightRequest="400"
+                        Margin="10"
+                        MinimumWidthRequest="600"
+                        Padding="20"
+                        StrokeThickness="3">
                         <VerticalStackLayout>
+                            <Label
+                                Text="Create a User"
+                                FontSize="36"
+                                FontAttributes="Bold" />
                             <Label
                                 Text="Enter Username and Password" />
                             <Label
@@ -114,12 +100,15 @@
                             <Entry
                                 IsPassword="True"
                                 Text="{Binding Password}" />
+                            <Button
+                                FontSize="20"
+                                Text="Create User"
+                                Command="{Binding CreateUserCommand}"
+                                Margin="20"
+                                CornerRadius="20"
+                                WidthRequest="140" />
                         </VerticalStackLayout>
                     </Border>
-                    <Button
-                        Text="Create User"
-                        Command="{Binding CreateUserCommand}" />
-
                     <Label
                         IsVisible="{Binding ShowPasswordIncorrectError}"
                         Text="Password must be greater than 4 characters"

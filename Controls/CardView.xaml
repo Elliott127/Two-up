@@ -2,19 +2,17 @@
 <Border
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="Game.Controls.CardView">
-    <Border.StrokeShape>
-        <RoundRectangle
-            CornerRadius="20"/>
-    </Border.StrokeShape>
+    x:Class="Game.Controls.CardView"
+    StrokeThickness="2"
+    Background= "White"
+    Padding="30,20"
+    Stroke="Black"
+    StrokeShape="RoundRectangle 40">
     <Border.Shadow>
-        <Shadow 
+        <Shadow
             Brush="Black"
-            Offset="1,0"
-            Opacity="1"
-            Radius="1"/>
+            Offset="-15,10"
+            Radius="30"
+            Opacity="0.9" />
     </Border.Shadow>
-
 </Border>
-    
-

@@ -34,6 +34,7 @@ namespace Game.ViewModels
             await this.userService.AddNewUser(this.Username, this.Password);
             this.Username = "";
             this.Password = "";
+            
         }
     }
 }
