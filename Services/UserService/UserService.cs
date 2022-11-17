@@ -17,6 +17,13 @@ namespace Game.Services
             dbPath = FileAccessHelper.GetLocalFilePath(Constants.DbFileName);
         }
 
+        /*public async Task DropTables()
+        {
+            await Init();
+            await conn.DropTableAsync<User>();
+            await conn.DropTableAsync<Games>();
+        }*/
+
         public string HashPass(string pass)
         {
             string salt = "%$3!/>";
