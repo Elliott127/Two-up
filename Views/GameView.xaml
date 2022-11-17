@@ -30,7 +30,8 @@
             <controls:CardView
                 HeightRequest="550"
                 WidthRequest="900"
-                Padding="20">
+                Padding="20"
+                Margin="20">
                 <VerticalStackLayout>
                     <VerticalStackLayout
                         Padding="20,20,0,0">

@@ -57,7 +57,8 @@
                                     Text="{Binding Password}"
                                     FontSize="18"
                                     WidthRequest="300"
-                                    IsPassword="True" />
+                                    IsPassword="True"
+                                    ReturnCommand="{Binding LoginCommand}"/>
                             </VerticalStackLayout>
                             <HorizontalStackLayout
                                 Padding="10"
