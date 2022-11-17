@@ -9,10 +9,11 @@
     x:Class="Game.Views.GameView"
     x:DataType="viewModel:GameViewModel">
     <ContentPage.Resources>
-        <ResourceDictionary
-            Source="../Resources/CustomStyles/GameViewStyles.xaml" />
+        <ResourceDictionary>
+            <ResourceDictionary
+                Source="../Resources/CustomStyles/GameViewStyles.xaml" />
+        </ResourceDictionary>
     </ContentPage.Resources>
-
     <ContentPage.MenuBarItems>
         <MenuBarItem
             Text="UI Changes">
@@ -27,48 +28,48 @@
         <VerticalStackLayout
             Padding="40">
             <controls:CardView
-                HeightRequest="750"
-                WidthRequest="1000"
-                Padding="20"
-                Margin="40">
+                HeightRequest="550"
+                WidthRequest="900"
+                Padding="20">
                 <VerticalStackLayout>
-                    <Label
-                        Style="{DynamicResource UsernameLabelStyle}"
-                        Text="{Binding Username}" />
-                    <Label
-                        Style="{DynamicResource ScoreLabelStyle}"
-                        Text="{Binding ScoreLabel}" />
-                    <VerticalStackLayout>
+                    <VerticalStackLayout
+                        Padding="20,20,0,0">
                         <Label
-                            VerticalOptions="Center"
-                            HorizontalOptions="Center"
-                            FontSize="24"
-                            Text="{Binding Outcome}"
-                            FontAttributes="Bold"
-                            Padding="0,0,0,20"
-                            Margin="10" />
+                            Style="{DynamicResource Label}"
+                            Text="{Binding Username}" />
+                        <Label
+                            Style="{DynamicResource Label}"
+                            Text="{Binding ScoreLabel}" />
+                        <Label
+                            Style="{DynamicResource Label}"
+                            Text="{Binding Outcome}" />
+                    </VerticalStackLayout>
+                    <VerticalStackLayout>
                         <Border
                             MaximumHeightRequest="400"
                             MaximumWidthRequest="400"
-                            Padding="20">
+                            Style="{DynamicResource Border}"
+                            Padding="10">
                             <Image
+                                
                                 Source="dotnet_bot.png"
-                                MaximumHeightRequest="250"
-                                MaximumWidthRequest="250" />
+                                MaximumHeightRequest="200" />
                         </Border>
-                        <VerticalStackLayout
-                            Margin="10">
+                        <VerticalStackLayout>
                             <HorizontalStackLayout
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center">
                                 <Button
+                                    Style="{DynamicResource Button}"
                                     Text="Heads"
                                     Command="{Binding HeadsChosenCommand}" />
                                 <Button
+                                    Style="{DynamicResource Button}"
                                     Text="Tails"
                                     Command="{Binding TailsChosenCommand}" />
                             </HorizontalStackLayout>
                             <Button
+                                Style="{DynamicResource Button}"
                                 HorizontalOptions="Center"
                                 Text="Toss Coin"
                                 Command="{Binding TossCoinCommand}" />
