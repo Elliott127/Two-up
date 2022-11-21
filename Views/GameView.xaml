@@ -44,11 +44,14 @@
                         <Label
                             Style="{DynamicResource Label}"
                             Text="{Binding Selection}" />
-                        <Label
-                            Style="{DynamicResource Label}"
-                            Text="{Binding Outcome}" />
+                        
                     </VerticalStackLayout>
                     <VerticalStackLayout>
+                        <Label
+                            Style="{DynamicResource Label}"
+                            Text="{Binding Outcome}"
+                            HorizontalOptions="Center"
+                            Padding="5" />
                         <Border
                             MaximumHeightRequest="400"
                             MaximumWidthRequest="400"

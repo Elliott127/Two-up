@@ -74,14 +74,15 @@ namespace Game.ViewModels
         [RelayCommand]
         private void TossCoin()
         {
-            bool isHeads = FlipCoins();
+            bool isFlipped = FlipCoins();
 
             if (!this.isHeads && !isTails)
             {
                 return;
             }
-            if (!isHeads)
+            if (!isFlipped)
             {
+                Outcome = Constants.outcomeOdd;
                 return;
             }
             if (RandomNumberGenerator() < 50)
@@ -97,15 +98,22 @@ namespace Game.ViewModels
 
         }
 
+        private void UpdateScore()
+        {
+            ScoreLabel = Constants.scoreBase + score;
+        }
+
         private void CheckOutcome(string outcome)
         {
             if(isHeads && Outcome == outcome)
             {
-                Score++;
+                score++;
+                UpdateScore();
             }
             else if(isTails && Outcome == outcome)
             {
-                Score++;
+                score++;
+                UpdateScore();
             }
         }
 
@@ -115,14 +123,13 @@ namespace Game.ViewModels
             isTails = false;
         }
 
-        private bool FlipCoins()
+        private static bool FlipCoins()
         {
             bool coinOne = RandomNumberGenerator() < 50;
             bool coinTwo = RandomNumberGenerator() < 50;
 
             if (!coinOne == coinTwo)
             {
-                Outcome = Constants.outcomeOdd;
                 return false;
             }
             return true;
