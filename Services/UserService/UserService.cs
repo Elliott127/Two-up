@@ -31,20 +31,18 @@ namespace Game.Services
             {
                 return string.Empty;
             }
-            using (SHA256Managed sha = new())
-            {
+            using SHA256Managed sha = new();
 
-                // Convert the string to a byte array first, to be processed
-                byte[] textBytes = System.Text.Encoding.UTF8.GetBytes(pass + salt);
-                byte[] hashBytes = sha.ComputeHash(textBytes);
+            // Convert the string to a byte array first, to be processed
+            byte[] textBytes = System.Text.Encoding.UTF8.GetBytes(pass + salt);
+            byte[] hashBytes = sha.ComputeHash(textBytes);
 
-                // Convert back to a string, removing the '-' that BitConverter adds
-                string hash = BitConverter
-                    .ToString(hashBytes)
-                    .Replace("-", string.Empty);
+            // Convert back to a string, removing the '-' that BitConverter adds
+            string hash = BitConverter
+                .ToString(hashBytes)
+                .Replace("-", string.Empty);
 
-                return hash;
-            }
+            return hash;
         }
 
         public async Task AddNewUser(string name, string password)

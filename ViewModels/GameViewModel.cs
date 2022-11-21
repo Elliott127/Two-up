@@ -7,7 +7,6 @@ namespace Game.ViewModels
     public sealed partial class GameViewModel : ObservableObject
     {
         private readonly IUserService userService;
-        private List<string> userInfo;
 
         [ObservableProperty]
         private int score = 0;
@@ -24,18 +23,8 @@ namespace Game.ViewModels
         public GameViewModel(IUserService userService)
         {
             this.userService= userService;
-            
-            
         }
-
-        public void UpdateScore()
-        {
-            score = 0;
-        }
-        public async Task RetrieveUserInformation()
-        {
-            userInfo = await userService.GetUserInfo(username);
-        }
+        
         [RelayCommand]
         public void SetDarkMode()
         {
