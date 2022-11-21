@@ -8,16 +8,16 @@ namespace Game.ViewModels
     public sealed partial class GameViewModel : ViewModelBase
     {
         private readonly IUserService userService;
-        private List<String> userInfo;
+        private List<string> userInfo;
 
         [ObservableProperty]
         private int score;
 
         [ObservableProperty]
-        private string scoreLabel = $"Score: ";
+        private string scoreLabel = string.Empty;
 
         [ObservableProperty]
-        private string username = "Username: ";
+        private string username = string.Empty;
 
         [ObservableProperty]
         private string outcome = "Outcome: ";
@@ -25,15 +25,14 @@ namespace Game.ViewModels
         public GameViewModel(IUserService userService)
         {
             this.userService = userService;
-
         }
 
         public override async Task InitialiseAsync(object navigationData)
         {
             userInfo = await userService.GetUserInfo();
-            Username = userInfo[0];
+            Username = "Player: " + userInfo[0];
             Score = int.Parse(userInfo[1]);
-            ScoreLabel = ScoreLabel + Score;
+            ScoreLabel = "Score: " + Score;
         }
 
         [RelayCommand]
@@ -41,6 +40,7 @@ namespace Game.ViewModels
         {
             throw new NotImplementedException();
         }
+
         [RelayCommand]
         private void TailsChosen()
         {
