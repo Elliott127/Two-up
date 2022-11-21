@@ -123,7 +123,5 @@ namespace Game.Services
             await conn.CreateTableAsync<Games>();
         }
 
-        
-
     }
 }

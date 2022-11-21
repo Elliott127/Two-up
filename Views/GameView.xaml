@@ -43,6 +43,9 @@
                             Text="{Binding ScoreLabel}" />
                         <Label
                             Style="{DynamicResource Label}"
+                            Text="{Binding Selection}" />
+                        <Label
+                            Style="{DynamicResource Label}"
                             Text="{Binding Outcome}" />
                     </VerticalStackLayout>
                     <VerticalStackLayout>

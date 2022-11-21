@@ -9,6 +9,8 @@ namespace Game.ViewModels
     {
         private readonly IUserService userService;
         private List<string> userInfo;
+        private bool isHeads = false;
+        private bool isTails = false;
 
         [ObservableProperty]
         private int score;
@@ -20,7 +22,10 @@ namespace Game.ViewModels
         private string username = string.Empty;
 
         [ObservableProperty]
-        private string outcome = "Outcome: ";
+        private string selection = Constants.selectionBase;
+
+        [ObservableProperty]
+        private string outcome = Constants.outcomeBase;
 
         public GameViewModel(IUserService userService)
         {
@@ -30,34 +35,103 @@ namespace Game.ViewModels
         public override async Task InitialiseAsync(object navigationData)
         {
             userInfo = await userService.GetUserInfo();
-            Username = "Player: " + userInfo[0];
+            Username = Constants.playerLabel + userInfo[0];
             Score = int.Parse(userInfo[1]);
-            ScoreLabel = "Score: " + Score;
+            ScoreLabel = Constants.scoreBase + Score;
+            Selection = Constants.selectionBase;
         }
 
         [RelayCommand]
         public void SetDarkMode()
         {
-            throw new NotImplementedException();
+            return;
         }
 
         [RelayCommand]
         private void TailsChosen()
         {
-            throw new NotImplementedException();
+            if (!isHeads && isTails)
+            {
+                return;
+            }
+            isHeads = false;
+            isTails = true;
+            Selection = Constants.selectionTails;
         }
 
         [RelayCommand]
         private void HeadsChosen()
         {
-            throw new NotImplementedException();
+            if(!isTails && isHeads)
+            {
+                return;
+            }
+            isTails = false;
+            isHeads = true;
+            Selection = Constants.selectionHeads;
         }
 
         [RelayCommand]
         private void TossCoin()
         {
-            throw new NotImplementedException();
+            bool isHeads = FlipCoins();
+
+            if (!this.isHeads && !isTails)
+            {
+                return;
+            }
+            if (!isHeads)
+            {
+                return;
+            }
+            if (RandomNumberGenerator() < 50)
+            {
+                Outcome = Constants.outcomeHeads;
+                CheckOutcome(Outcome);
+                ResetCoins();
+                return;
+            }
+            Outcome = Constants.outcomeTails;
+            CheckOutcome(Outcome);
+            ResetCoins();
+
         }
 
+        private void CheckOutcome(string outcome)
+        {
+            if(isHeads && Outcome == outcome)
+            {
+                Score++;
+            }
+            else if(isTails && Outcome == outcome)
+            {
+                Score++;
+            }
+        }
+
+        private void ResetCoins()
+        {
+            isHeads = false;
+            isTails = false;
+        }
+
+        private bool FlipCoins()
+        {
+            bool coinOne = RandomNumberGenerator() < 50;
+            bool coinTwo = RandomNumberGenerator() < 50;
+
+            if (!coinOne == coinTwo)
+            {
+                Outcome = Constants.outcomeOdd;
+                return false;
+            }
+            return true;
+        }
+
+        private static int RandomNumberGenerator()
+        {
+            Random rand = new();
+            return rand.Next(0,101);
+        }
     }
 }
