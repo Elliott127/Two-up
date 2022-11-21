@@ -31,9 +31,14 @@ namespace Game.ViewModels
         [RelayCommand]
         private async void CreateUser()
         {
+            if(string.IsNullOrEmpty(Username))
+            {
+                return;
+            }
             await this.userService.AddNewUser(this.Username, this.Password);
-            this.Username = "";
-            this.Password = "";
+
+            this.Username = string.Empty;
+            this.Password = string.Empty;
             
         }
     }

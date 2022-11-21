@@ -52,7 +52,6 @@
                             Style="{DynamicResource Border}"
                             Padding="10">
                             <Image
-                                
                                 Source="dotnet_bot.png"
                                 MaximumHeightRequest="200" />
                         </Border>

@@ -25,6 +25,8 @@ namespace Game.ViewModels
         {
             if (await userService.CheckUserCredentials(Username, Password))
             {
+                Username = string.Empty;
+                Password = string.Empty;
                 await Shell.Current.GoToAsync(nameof(GameView), true);
             }
         }

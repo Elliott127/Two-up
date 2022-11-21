@@ -51,44 +51,44 @@
             HorizontalOptions="Center"
             VerticalOptions="Center">
             <controls:CardView
-                WidthRequest="1000"
-                MinimumHeightRequest="700">
+                WidthRequest="900"
+                MinimumHeightRequest="550">
                 <VerticalStackLayout
                     VerticalOptions="Center"
                     HorizontalOptions="Center"
                     Padding="20">
+                    <Label
+                        Text="Create a User"
+                        FontSize="42"
+                        FontAttributes="Bold"
+                        Padding="0,0,0,20"
+                        TextDecorations="Underline" />
+                    <VerticalStackLayout
+                        Margin="10">
                         <Label
-                            Text="Create a User"
-                            FontSize="42"
-                            FontAttributes="Bold"
-                            Padding="0,0,0,20"
-                            TextDecorations="Underline"/>
-                        <VerticalStackLayout
-                            Margin="10">
-                            <Label
-                                Text="Enter Username and Password" />
-                            <Label
-                                Text="Username:" />
-                            <Entry
-                                Placeholder="Enter a Username"
-                                Text="{Binding Username}" />
-                            <Label
-                                Text="Password:" />
-                            <Entry
-                                IsPassword="True"
-                                Text="{Binding Password}" />
-                            <Button
-                                FontSize="18"
-                                Text="Create User"
-                                Command="{Binding CreateUserCommand}"
-                                Margin="20"
-                                CornerRadius="20"
-                                WidthRequest="140" />
-                            <Label
-                                IsVisible="{Binding ShowPasswordIncorrectError}"
-                                Text="Password must be greater than 4 characters"
-                                TextColor="Red" />
-                        </VerticalStackLayout>
+                            Text="Enter Username and Password" />
+                        <Label
+                            Text="Username:" />
+                        <Entry
+                            Placeholder="Enter a Username"
+                            Text="{Binding Username}" />
+                        <Label
+                            Text="Password:" />
+                        <Entry
+                            IsPassword="True"
+                            Text="{Binding Password}" />
+                        <Button
+                            FontSize="18"
+                            Text="Create User"
+                            Command="{Binding CreateUserCommand}"
+                            Margin="20"
+                            CornerRadius="20"
+                            WidthRequest="140" />
+                        <Label
+                            IsVisible="{Binding ShowPasswordIncorrectError}"
+                            Text="Password must be greater than 4 characters"
+                            TextColor="Red" />
+                    </VerticalStackLayout>
                 </VerticalStackLayout>
             </controls:CardView>
         </VerticalStackLayout>

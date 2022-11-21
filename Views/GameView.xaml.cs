@@ -9,4 +9,11 @@ public partial class GameView: ContentPage
 		InitializeComponent();
 		this.BindingContext= viewModel;
 	}
+
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+		var gameViewModel = this.BindingContext as GameViewModel;
+		await gameViewModel.InitialiseAsync(null);
+    }
 }

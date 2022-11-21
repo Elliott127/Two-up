@@ -20,58 +20,51 @@
             Padding="30,0"
             VerticalOptions="Center">
             <control:CardView
-                WidthRequest="1000"
-                MinimumHeightRequest="700">
+                WidthRequest="900"
+                MinimumHeightRequest="550">
                 <VerticalStackLayout
                     VerticalOptions="Center">
-                    <Border
-                        WidthRequest="700"
-                        Padding="10"
-                        StrokeThickness="3"
-                        Stroke="Gray"
-                        StrokeShape="RoundRectangle 20">
+                    <VerticalStackLayout
+                        Padding="30">
+                        <Label
+                            Style="{StaticResource loginPageTitle}"
+                            Text="Login to play Two-up"
+                            Padding="20"
+                            Margin="10" />
                         <VerticalStackLayout
-                            Padding="30">
+                            Padding="10">
                             <Label
-                                Style="{StaticResource loginPageTitle}"
-                                Text="Login to play Two-up"
-                                Padding="20"
-                                Margin="10" />
-                            <VerticalStackLayout
-                                Padding="10">
-                                <Label
-                                    Text="Username:"
-                                    Style="{StaticResource loginLabel}" />
-                                <Entry
-                                    Text="{Binding Username}"
-                                    FontSize="18"
-                                    WidthRequest="300"
-                                    Placeholder="Enter Username" />
-                            </VerticalStackLayout>
-                            <VerticalStackLayout
-                                Padding="10">
-                                <Label
-                                    Text="Password:"
-                                    Style="{StaticResource loginLabel}" />
-                                <Entry
-                                    Text="{Binding Password}"
-                                    FontSize="18"
-                                    WidthRequest="300"
-                                    IsPassword="True"
-                                    ReturnCommand="{Binding LoginCommand}"/>
-                            </VerticalStackLayout>
-                            <HorizontalStackLayout
-                                Padding="10"
-                                HorizontalOptions="Center">
-                                <Button
-                                    Text="Login"
-                                    Command="{Binding LoginCommand}" />
-                                <Button
-                                    Text="Signup"
-                                    Command="{Binding SignupCommand}" />
-                            </HorizontalStackLayout>
+                                Text="Username:"
+                                Style="{StaticResource loginLabel}" />
+                            <Entry
+                                Text="{Binding Username}"
+                                FontSize="18"
+                                WidthRequest="300"
+                                Placeholder="Enter Username" />
                         </VerticalStackLayout>
-                    </Border>
+                        <VerticalStackLayout
+                            Padding="10">
+                            <Label
+                                Text="Password:"
+                                Style="{StaticResource loginLabel}" />
+                            <Entry
+                                Text="{Binding Password}"
+                                FontSize="18"
+                                WidthRequest="300"
+                                IsPassword="True"
+                                ReturnCommand="{Binding LoginCommand}" />
+                        </VerticalStackLayout>
+                        <HorizontalStackLayout
+                            Padding="10"
+                            HorizontalOptions="Center">
+                            <Button
+                                Text="Login"
+                                Command="{Binding LoginCommand}" />
+                            <Button
+                                Text="Signup"
+                                Command="{Binding SignupCommand}" />
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
                 </VerticalStackLayout>
             </control:CardView>
         </VerticalStackLayout>

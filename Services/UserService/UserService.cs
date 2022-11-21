@@ -9,6 +9,7 @@ namespace Game.Services
 
         private SQLiteAsyncConnection conn;
         private readonly string dbPath;
+        private int id;
 
         public string StatusMessage { get; set; }
 
@@ -17,12 +18,12 @@ namespace Game.Services
             dbPath = FileAccessHelper.GetLocalFilePath(Constants.DbFileName);
         }
 
-        /*public async Task DropTables()
+        public async Task DropTables()
         {
             await Init();
             await conn.DropTableAsync<User>();
             await conn.DropTableAsync<Games>();
-        }*/
+        }
 
         public string HashPass(string pass)
         {
@@ -81,19 +82,15 @@ namespace Game.Services
             return new List<User>();
         }
 
-        public async Task<List<string>> GetUserInfo(string username)
+        public async Task<List<string>> GetUserInfo()
         {
-            List<User> users = await GetListOfUsers();
+            List<User> users;
             List<string> userInfo = new();
-            foreach (User user in users)
-            {
-                if (user.Username == username)
-                {
-                    userInfo.Add(user.Username);
-                    userInfo.Add(user.Score.ToString());
-                    return userInfo;
-                }
-            }
+            users = await GetUserInfoById();
+
+            userInfo.Add(users[0].Username);
+            userInfo.Add(users[0].Score.ToString());
+
             return userInfo;
         }
 
@@ -104,10 +101,16 @@ namespace Game.Services
             {
                 if (username == user.Username && user.Password == HashPass(password))
                 {
+                    id = user.UserId;
                     return true;
                 }
             }
             return false;
+        }
+
+        public async Task<List<User>> GetUserInfoById()
+        {
+            return await conn.QueryAsync<User>($"SELECT * FROM User WHERE UserId = {this.id}");
         }
 
         private async Task Init()
