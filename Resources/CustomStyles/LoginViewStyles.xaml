@@ -29,14 +29,17 @@
             Property="FontSize"
             Value="18" />
         <Setter
-            Property="HorizontalOptions"
-            Value="Center" />
-        <Setter
             Property="Padding"
             Value="10" />
         <Setter
-            Property="FontAttributes"
-            Value="Bold" />
+            Property="FontFamily"
+            Value="MontserratBold" />
+        <Setter
+            Property="HorizontalOptions"
+            Value="Center" />
+        <Setter
+            Property="VerticalOptions"
+            Value="Center" />
     </Style>
     <Style
         TargetType="Button">

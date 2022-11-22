@@ -13,59 +13,63 @@
         <ResourceDictionary
             Source="../Resources/CustomStyles/LoginViewStyles.xaml" />
     </ContentPage.Resources>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+
+    <VerticalStackLayout
+        VerticalOptions="Center">
         <control:CardView
-                WidthRequest="750"
-                MinimumHeightRequest="550">
-                <VerticalStackLayout
-                    VerticalOptions="Center">
-                    <VerticalStackLayout
-                        Padding="30">
-                        <Label
-                            Style="{StaticResource loginPageTitle}"
-                            Text="Login to play Two-up"
-                            Padding="20"
-                            Margin="10" />
-                        <VerticalStackLayout>
-                            <VerticalStackLayout
-                                Padding="10">
-                                <Label
-                                    Text="Username:"
-                                    Style="{StaticResource loginLabel}" />
-                                <Entry
-                                    Text="{Binding Username}"
-                                    FontSize="18"
-                                    WidthRequest="300"
-                                    Placeholder="Enter Username" />
-                            </VerticalStackLayout>
-                            <VerticalStackLayout
-                                Padding="10">
-                                <Label
-                                    Text="Password:"
-                                    Style="{StaticResource loginLabel}" />
-                                <Entry
-                                    Text="{Binding Password}"
-                                    FontSize="18"
-                                    WidthRequest="300"
-                                    IsPassword="True"
-                                    ReturnCommand="{Binding LoginCommand}" />
-                            </VerticalStackLayout>
-                        </VerticalStackLayout>
-                        <HorizontalStackLayout
-                            Padding="10"
-                            HorizontalOptions="Center">
-                            <Button
-                                Text="Login"
-                                Command="{Binding LoginCommand}" />
-                            <Button
-                                Text="Signup"
-                                Command="{Binding SignupCommand}" />
-                        </HorizontalStackLayout>
-                    </VerticalStackLayout>
-                </VerticalStackLayout>
-            </control:CardView>
-        </VerticalStackLayout>
+            WidthRequest="750"
+            MinimumHeightRequest="550">
+            <VerticalStackLayout
+                VerticalOptions="Center">
+                <Label
+                    Style="{StaticResource loginPageTitle}"
+                    Text="Login to play Two-up"
+                    Padding="20"
+                    Margin="10" />
+                <Grid
+                    RowDefinitions="*,*,*,*"
+                    RowSpacing="2"
+                    ColumnDefinitions="*,*,*,*,*,*,*,*">
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Grid.ColumnSpan="2"
+                        Text="Username:"
+                        Style="{StaticResource loginLabel}" />
+                    <Entry
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Grid.ColumnSpan="4"
+                        Text="{Binding Username}"
+                        FontSize="18"
+                        WidthRequest="300" />
+                    <Label
+                        Grid.Row="2"
+                        Text="Password:"
+                        Grid.Column="2"
+                        Grid.ColumnSpan="2"
+                        Style="{StaticResource loginLabel}" />
+                    <Entry
+                        Grid.Row="3"
+                        Grid.Column="2"
+                        Grid.ColumnSpan="4"
+                        Text="{Binding Password}"
+                        FontSize="18"
+                        WidthRequest="300"
+                        IsPassword="True"
+                        ReturnCommand="{Binding LoginCommand}" />
+                </Grid>
+                <HorizontalStackLayout
+                    Padding="10"
+                    HorizontalOptions="Center">
+                    <Button
+                        Text="Login"
+                        Command="{Binding LoginCommand}" />
+                    <Button
+                        Text="Signup"
+                        Command="{Binding SignupCommand}" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </control:CardView>
+    </VerticalStackLayout>
 </ContentPage>

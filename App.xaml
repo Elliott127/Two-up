@@ -28,10 +28,13 @@
                     Value="10" />
                 <Setter
                     Property="BackgroundColor"
-                    Value="#6F2DA8" />
+                    Value="{StaticResource Primary}" />
                 <Setter
                     Property="TextColor"
                     Value="White" />
+                <Setter
+                    Property="CornerRadius"
+                    Value="10" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>

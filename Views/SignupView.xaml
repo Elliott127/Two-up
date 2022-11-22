@@ -7,7 +7,8 @@
     xmlns:viewModels="clr-namespace:Game.ViewModels"
     xmlns:controls="clr-namespace:Game.Controls"
     x:Class="Game.Views.SignupView"
-    x:DataType="viewModels:SignupViewModel">
+    x:DataType="viewModels:SignupViewModel"
+    BackgroundImageSource="security_background.png">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style
@@ -25,8 +26,8 @@
                     Property="VerticalOptions"
                     Value="Center" />
                 <Setter
-                    Property="FontAttributes"
-                    Value="Bold" />
+                    Property="FontFamily"
+                    Value="MontserratBold" />
             </Style>
             <Style
                 TargetType="Entry">
@@ -46,52 +47,51 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <ScrollView>
-        <VerticalStackLayout
-            HorizontalOptions="Center"
-            VerticalOptions="Center">
-            <controls:CardView
-                WidthRequest="900"
-                MinimumHeightRequest="550">
-                <VerticalStackLayout
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Padding="20">
+    <VerticalStackLayout
+        VerticalOptions="Center">
+        <controls:CardView
+            WidthRequest="750"
+            MinimumHeightRequest="550">
+            <VerticalStackLayout
+                VerticalOptions="Center">
+                <Label
+                    Text="Create a User"
+                    FontSize="36"
+                    Padding="20"
+                    Margin="10" />
+                <Grid
+                    RowSpacing="2"
+                    RowDefinitions="*,*,*,*"
+                    ColumnDefinitions="*,*,*,*,*,*,*,*">
                     <Label
-                        Text="Create a User"
-                        FontSize="42"
-                        FontAttributes="Bold"
-                        Padding="0,0,0,20"
-                        TextDecorations="Underline" />
-                    <VerticalStackLayout
-                        Margin="10">
-                        <Label
-                            Text="Enter Username and Password" />
-                        <Label
-                            Text="Username:" />
-                        <Entry
-                            Placeholder="Enter a Username"
-                            Text="{Binding Username}" />
-                        <Label
-                            Text="Password:" />
-                        <Entry
-                            IsPassword="True"
-                            Text="{Binding Password}" />
-                        <Button
-                            FontSize="18"
-                            Text="Create User"
-                            Command="{Binding CreateUserCommand}"
-                            Margin="20"
-                            CornerRadius="20"
-                            WidthRequest="140" />
-                        <Label
-                            IsVisible="{Binding ShowPasswordIncorrectError}"
-                            Text="Password must be greater than 4 characters"
-                            TextColor="Red" />
-                    </VerticalStackLayout>
-                </VerticalStackLayout>
-            </controls:CardView>
-        </VerticalStackLayout>
-    </ScrollView>
-
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Grid.ColumnSpan="2"
+                        Text="Username:" />
+                    <Entry
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Grid.ColumnSpan="4"
+                        Text="{Binding Username}" />
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="2"
+                        Grid.ColumnSpan="2"
+                        Text="Password:" />
+                    <Entry
+                        Grid.Row="3"
+                        Grid.Column="2"
+                        Grid.ColumnSpan="4"
+                        IsPassword="True"
+                        Text="{Binding Password}" />
+                </Grid>
+                <Button
+                    FontSize="18"
+                    Text="Create User"
+                    Command="{Binding CreateUserCommand}"
+                    Margin="20"
+                    WidthRequest="140" />
+            </VerticalStackLayout>
+        </controls:CardView>
+    </VerticalStackLayout>
 </ContentPage>

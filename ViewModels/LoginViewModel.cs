@@ -13,7 +13,7 @@ namespace Game.ViewModels
         private string username = string.Empty;
 
         [ObservableProperty]
-        private string password = string.Empty; 
+        private string password = string.Empty;
 
         public LoginViewModel(IUserService userService)
         {
@@ -23,14 +23,22 @@ namespace Game.ViewModels
         [RelayCommand]
         private async void Login()
         {
-            if (await userService.CheckUserCredentials(Username, Password))
+            if (string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password))
             {
-                Username = string.Empty;
                 Password = string.Empty;
+                await App.Current.MainPage.DisplayAlert("Invalid Input", "Not all fields are filled out", "OK");
+                return;
+            }
+            else if (await userService.CheckUserCredentials(Username, Password))
+            {
                 await Shell.Current.GoToAsync(nameof(GameView), true);
             }
+            else
+            {
+                await App.Current.MainPage.DisplayAlert("Invalid credentials", "The credentials you entered didn't match", "OK");
+            }
+            Password = string.Empty;
         }
-
         [RelayCommand]
         private async void Signup()
         {

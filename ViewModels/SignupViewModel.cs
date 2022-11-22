@@ -12,34 +12,29 @@ namespace Game.ViewModels
         private string username = string.Empty;
 
         [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(this.ShowPasswordIncorrectError))]
         private string password = string.Empty;
         public SignupViewModel(IUserService userService)
         {
             this.userService = userService;
         }
 
-        public bool ShowPasswordIncorrectError
-        {
-            get
-            {
-                return this.Password.Length < 4;
-            }
-            
-        }        
-
         [RelayCommand]
         private async void CreateUser()
         {
-            if(string.IsNullOrEmpty(Username))
+            this.Username = string.Empty;
+            this.Password = string.Empty;
+            if (string.IsNullOrEmpty(Username))
             {
                 return;
             }
-            await this.userService.AddNewUser(this.Username, this.Password);
-
-            this.Username = string.Empty;
-            this.Password = string.Empty;
-            
+            if(Password.Length < 8)
+            {
+                await App.Current.MainPage.DisplayAlert("Invalid", "Password length needs to be at least 8 characters long", "OK");
+            }
+            else
+            {
+                await this.userService.AddNewUser(this.Username, this.Password);
+            }
         }
     }
 }
