@@ -13,6 +13,9 @@ namespace Game.ViewModels
         private bool isTails = false;
 
         [ObservableProperty]
+        private ImageSource backgroundImage;
+
+        [ObservableProperty]
         private int score;
 
         [ObservableProperty]
@@ -34,6 +37,7 @@ namespace Game.ViewModels
 
         public override async Task InitialiseAsync(object navigationData)
         {
+            backgroundImage = "space_background.png";
             userInfo = await userService.GetUserInfo();
             Username = Constants.playerLabel + userInfo[0];
             Score = int.Parse(userInfo[1]);
@@ -47,98 +51,113 @@ namespace Game.ViewModels
             return;
         }
 
+        /// <summary>
+        /// Sets isTails to true and isHeads to false
+        /// </summary>
         [RelayCommand]
         private void TailsChosen()
         {
-            if (!isHeads && isTails)
+            Selection = Constants.selectionTails;
+            if (isTails)
             {
                 return;
             }
             isHeads = false;
             isTails = true;
-            Selection = Constants.selectionTails;
         }
 
+        /// <summary>
+        /// Sets isHeads to true and isTails to false
+        /// </summary>
         [RelayCommand]
         private void HeadsChosen()
         {
-            if(!isTails && isHeads)
+            Selection = Constants.selectionHeads;
+            if (isHeads)
             {
                 return;
             }
             isTails = false;
             isHeads = true;
-            Selection = Constants.selectionHeads;
         }
 
+        /// <summary>
+        /// Function designed for managing outcomes of the coins flipped
+        /// </summary>
         [RelayCommand]
-        private void TossCoin()
+        private async Task TossCoin()
         {
-            bool isFlipped = FlipCoins();
+            bool[] coins = FlipCoins();
 
             if (!this.isHeads && !isTails)
             {
+                await App.Current.MainPage.DisplayAlert("Invalid selection", "Please make a selection", "OK");
                 return;
             }
-            if (!isFlipped)
-            {
-                Outcome = Constants.outcomeOdd;
-                return;
-            }
-            if (RandomNumberGenerator() < 50)
-            {
-                Outcome = Constants.outcomeHeads;
-                CheckOutcome(Outcome);
-                ResetCoins();
-                return;
-            }
-            Outcome = Constants.outcomeTails;
-            CheckOutcome(Outcome);
-            ResetCoins();
-
+            
+            CheckOutcome(coins);
+            Selection = Constants.selectionBase;
         }
 
+        /// <summary>
+        /// Updates the ScoreLabel label for the UI so that it shows the updated score
+        /// </summary>
         private void UpdateScore()
         {
             ScoreLabel = Constants.scoreBase + score;
         }
 
-        private void CheckOutcome(string outcome)
+        /// <summary>
+        /// Checks to see if the player should get their score increased
+        /// </summary>
+        private void CheckOutcome(bool[] coins)
         {
-            if(isHeads && Outcome == outcome)
+            if (coins[0] != coins[1])
+            {
+                Outcome = Constants.outcomeOdd;
+                return;
+            }
+            else if ((coins[0] && isHeads) || !coins[0] && isTails)
             {
                 score++;
-                UpdateScore();
             }
-            else if(isTails && Outcome == outcome)
-            {
-                score++;
-                UpdateScore();
-            }
+            Outcome = (coins[0]) ? Constants.outcomeHeads : Constants.outcomeTails;
+            UpdateScore();
+            ResetCoins();
         }
 
+        /// <summary>
+        /// Resets both isHeads and isTails values to false
+        /// </summary>
         private void ResetCoins()
         {
             isHeads = false;
             isTails = false;
         }
 
-        private static bool FlipCoins()
+        /// <summary>
+        /// Returns two boolean values that are meant to represent the coins landing on heads or tails
+        /// </summary>
+        /// <returns></returns>
+        private static bool[] FlipCoins()
         {
-            bool coinOne = RandomNumberGenerator() < 50;
-            bool coinTwo = RandomNumberGenerator() < 50;
+            bool[] coins = new bool[2];
+            coins[0] = (RandomNumberGenerator() % 2 == 1);
+            coins[1] = (RandomNumberGenerator() % 2 == 0);
 
-            if (!coinOne == coinTwo)
-            {
-                return false;
-            }
-            return true;
+            return coins;
         }
 
+        /// <summary>
+        /// <para>
+        ///  Generates a number between 1 and 10
+        /// </para>
+        /// </summary>
+        /// <returns></returns>
         private static int RandomNumberGenerator()
         {
             Random rand = new();
-            return rand.Next(0,101);
+            return rand.Next(1,11);
         }
     }
 }
