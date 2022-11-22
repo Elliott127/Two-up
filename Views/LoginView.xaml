@@ -7,20 +7,18 @@
     xmlns:viewModels="clr-namespace:Game.ViewModels"
     xmlns:control="clr-namespace:Game.Controls"
     x:Class="Game.Views.LoginView"
-    x:DataType="viewModels:LoginViewModel">
+    x:DataType="viewModels:LoginViewModel"
+    BackgroundImageSource="coin_background.png">
     <ContentPage.Resources>
         <ResourceDictionary
             Source="../Resources/CustomStyles/LoginViewStyles.xaml" />
     </ContentPage.Resources>
-
-    <ScrollView>
-
         <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">
-            <control:CardView
-                WidthRequest="900"
+        <control:CardView
+                WidthRequest="750"
                 MinimumHeightRequest="550">
                 <VerticalStackLayout
                     VerticalOptions="Center">
@@ -31,28 +29,30 @@
                             Text="Login to play Two-up"
                             Padding="20"
                             Margin="10" />
-                        <VerticalStackLayout
-                            Padding="10">
-                            <Label
-                                Text="Username:"
-                                Style="{StaticResource loginLabel}" />
-                            <Entry
-                                Text="{Binding Username}"
-                                FontSize="18"
-                                WidthRequest="300"
-                                Placeholder="Enter Username" />
-                        </VerticalStackLayout>
-                        <VerticalStackLayout
-                            Padding="10">
-                            <Label
-                                Text="Password:"
-                                Style="{StaticResource loginLabel}" />
-                            <Entry
-                                Text="{Binding Password}"
-                                FontSize="18"
-                                WidthRequest="300"
-                                IsPassword="True"
-                                ReturnCommand="{Binding LoginCommand}" />
+                        <VerticalStackLayout>
+                            <VerticalStackLayout
+                                Padding="10">
+                                <Label
+                                    Text="Username:"
+                                    Style="{StaticResource loginLabel}" />
+                                <Entry
+                                    Text="{Binding Username}"
+                                    FontSize="18"
+                                    WidthRequest="300"
+                                    Placeholder="Enter Username" />
+                            </VerticalStackLayout>
+                            <VerticalStackLayout
+                                Padding="10">
+                                <Label
+                                    Text="Password:"
+                                    Style="{StaticResource loginLabel}" />
+                                <Entry
+                                    Text="{Binding Password}"
+                                    FontSize="18"
+                                    WidthRequest="300"
+                                    IsPassword="True"
+                                    ReturnCommand="{Binding LoginCommand}" />
+                            </VerticalStackLayout>
                         </VerticalStackLayout>
                         <HorizontalStackLayout
                             Padding="10"
@@ -68,5 +68,4 @@
                 </VerticalStackLayout>
             </control:CardView>
         </VerticalStackLayout>
-    </ScrollView>
 </ContentPage>

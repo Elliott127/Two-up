@@ -14,7 +14,10 @@
             Value="Center" />
         <Setter
             Property="FontSize"
-            Value="42" />
+            Value="36" />
+        <Setter
+            Property="FontFamily"
+            Value="MontserratBold" />
         <Setter
             Property="Padding"
             Value="10" />
@@ -39,7 +42,7 @@
         TargetType="Button">
         <Setter
             Property="WidthRequest"
-            Value="100" />
+            Value="125" />
         <Setter
             Property="Padding"
             Value="10" />
@@ -48,6 +51,6 @@
             Value="16" />
         <Setter
             Property="Margin"
-            Value="25,10,25,10" />
+            Value="25,10" />
     </Style>
 </ResourceDictionary>

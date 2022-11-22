@@ -26,10 +26,10 @@
     <Style
         x:Key="Label"
         TargetType="Label">
-        
+
         <Setter
-            Property="FontAttributes"
-            Value="Bold" />
+            Property="FontFamily"
+            Value="MontserratBold" />
         <Setter
             Property="FontSize"
             Value="18" />

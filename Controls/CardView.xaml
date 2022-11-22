@@ -6,13 +6,13 @@
     StrokeThickness="2"
     Background= "White"
     Padding="30,20"
-    Stroke="Black"
+    Stroke="#E5E4E2"
     StrokeShape="RoundRectangle 40">
     <Border.Shadow>
         <Shadow
             Brush="Black"
-            Offset="-15,10"
+            Offset="-5,10"
             Radius="30"
-            Opacity="0.9" />
+            Opacity="0.45" />
     </Border.Shadow>
 </Border>
