@@ -21,20 +21,21 @@ namespace Game.ViewModels
         [RelayCommand]
         private async void CreateUser()
         {
-            this.Username = string.Empty;
-            this.Password = string.Empty;
+            
             if (string.IsNullOrEmpty(Username))
             {
                 return;
             }
-            if(Password.Length < 8)
+            if(Password.Length >= 8)
             {
-                await App.Current.MainPage.DisplayAlert("Invalid", "Password length needs to be at least 8 characters long", "OK");
+                await userService.AddNewUser(Username, Password);
             }
             else
             {
-                await this.userService.AddNewUser(this.Username, this.Password);
+                await App.Current.MainPage.DisplayAlert("Invalid", "Password length needs to be at least 8 characters long", "OK");
             }
+            this.Username = string.Empty;
+            this.Password = string.Empty;
         }
     }
 }

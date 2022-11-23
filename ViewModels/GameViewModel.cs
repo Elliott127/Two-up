@@ -16,7 +16,7 @@ namespace Game.ViewModels
         private ImageSource backgroundImage;
 
         [ObservableProperty]
-        private int score;
+        private int score = 0;
 
         [ObservableProperty]
         private string scoreLabel = string.Empty;
@@ -28,7 +28,7 @@ namespace Game.ViewModels
         private string selection = Constants.selectionBase;
 
         [ObservableProperty]
-        private string outcome = Constants.outcomeBase;
+        private string outcome = Constants.outcomeBase + "None";
 
         public GameViewModel(IUserService userService)
         {
@@ -40,11 +40,17 @@ namespace Game.ViewModels
             backgroundImage = "space_background.png";
             userInfo = await userService.GetUserInfo();
             Username = Constants.playerLabel + userInfo[0];
-            Score = int.Parse(userInfo[1]);
+            if(score == 0)
+            { 
+                Score = int.Parse(userInfo[1]);
+            }
             ScoreLabel = Constants.scoreBase + Score;
             Selection = Constants.selectionBase;
         }
 
+        /// <summary>
+        /// Sets theme to Dark mode
+        /// </summary>
         [RelayCommand]
         public void SetDarkMode()
         {
@@ -94,9 +100,7 @@ namespace Game.ViewModels
                 await App.Current.MainPage.DisplayAlert("Invalid selection", "Please make a selection", "OK");
                 return;
             }
-            
             CheckOutcome(coins);
-            Selection = Constants.selectionBase;
         }
 
         /// <summary>
@@ -104,7 +108,9 @@ namespace Game.ViewModels
         /// </summary>
         private void UpdateScore()
         {
+            score++;
             ScoreLabel = Constants.scoreBase + score;
+            userService.UpdateUserScore(score);
         }
 
         /// <summary>
@@ -119,11 +125,11 @@ namespace Game.ViewModels
             }
             else if ((coins[0] && isHeads) || !coins[0] && isTails)
             {
-                score++;
+                ResetCoins();
+                UpdateScore();
+                Selection = Constants.selectionBase;
             }
             Outcome = (coins[0]) ? Constants.outcomeHeads : Constants.outcomeTails;
-            UpdateScore();
-            ResetCoins();
         }
 
         /// <summary>

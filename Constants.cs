@@ -8,7 +8,7 @@ namespace Game
         public const string outcomeBase = "Outcome: ";
         public const string outcomeHeads = "Outcome: Heads";
         public const string outcomeTails = "Outcome: Tails";
-        public const string outcomeOdd = "Outcome: Odds";
+        public const string outcomeOdd = "Outcome: Odds Roll again!";
         public const string playerLabel = "Player: ";
         public const string selectionBase = "Selection: None";
         public const string selectionHeads = "Selection: Heads";

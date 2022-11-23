@@ -110,9 +110,15 @@ namespace Game.Services
 
         public async Task<List<User>> GetUserInfoById()
         {
+            await Init();
             return await conn.QueryAsync<User>($"SELECT * FROM User WHERE UserId = {this.id}");
         }
 
+        public async Task UpdateUserScore(int score)
+        {
+            await Init();
+            await conn.QueryAsync<User>($"UPDATE User SET Score = {score} WHERE UserId = {this.id}");
+        }
         private async Task Init()
         {
             if (conn != null)

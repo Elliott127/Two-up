@@ -12,6 +12,6 @@ namespace Game.Services
         string HashPass(string pass);
         public Task DropTables();
         public Task<List<User>> GetUserInfoById();
-
+        public Task UpdateUserScore(int score);
     }
 }
