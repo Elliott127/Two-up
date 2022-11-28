@@ -19,8 +19,14 @@
         <MenuBarItem
             Text="UI Changes">
             <MenuFlyoutItem
-                Text="Dark Mode"
-                Command="{Binding SetDarkModeCommand}" />
+                Text="Space Theme"
+                Command="{Binding SpaceThemeCommand}" />
+            <MenuFlyoutItem
+                Text="Coin Theme"
+                Command="{Binding CoinThemeCommand}" />
+            <MenuFlyoutItem
+                Text="Rock Theme"
+                Command="{Binding RockThemeCommand}" />
         </MenuBarItem>
     </ContentPage.MenuBarItems>
     <ScrollView
