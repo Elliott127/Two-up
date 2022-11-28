@@ -52,7 +52,19 @@ namespace Game.ViewModels
         /// Sets theme to Dark mode
         /// </summary>
         [RelayCommand]
-        public void SetDarkMode()
+        public void SpaceTheme()
+        {
+            return;
+        }
+
+        [RelayCommand]
+        public void CoinTheme()
+        {
+            return;
+        }
+
+        [RelayCommand]
+        public void RockTheme()
         {
             return;
         }

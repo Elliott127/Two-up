@@ -24,15 +24,22 @@ namespace Game.ViewModels
             
             if (string.IsNullOrEmpty(Username))
             {
+                await App.Current.MainPage.DisplayAlert("Invalid", "No username entered", "OK");
+                this.Username = string.Empty;
+                this.Password = string.Empty;
                 return;
             }
             if(Password.Length >= 8)
             {
                 await userService.AddNewUser(Username, Password);
+                this.Username = string.Empty;
+                this.Password = string.Empty;
+                await App.Current.MainPage.DisplayAlert("Successful", "User has been created!", "OK");
             }
             else
             {
                 await App.Current.MainPage.DisplayAlert("Invalid", "Password length needs to be at least 8 characters long", "OK");
+                this.Password = string.Empty;
             }
             this.Username = string.Empty;
             this.Password = string.Empty;
