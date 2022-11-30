@@ -13,9 +13,6 @@ namespace Game.ViewModels
         private bool isTails = false;
 
         [ObservableProperty]
-        private ImageSource backgroundImage;
-
-        [ObservableProperty]
         private int score = 0;
 
         [ObservableProperty]
@@ -37,7 +34,6 @@ namespace Game.ViewModels
 
         public override async Task InitialiseAsync(object navigationData)
         {
-            backgroundImage = "space_background.png";
             userInfo = await userService.GetUserInfo();
             Username = Constants.playerLabel + userInfo[0];
             if(score == 0)
@@ -46,27 +42,6 @@ namespace Game.ViewModels
             }
             ScoreLabel = Constants.scoreBase + Score;
             Selection = Constants.selectionBase;
-        }
-
-        /// <summary>
-        /// Sets theme to Dark mode
-        /// </summary>
-        [RelayCommand]
-        public void SpaceTheme()
-        {
-            return;
-        }
-
-        [RelayCommand]
-        public void CoinTheme()
-        {
-            return;
-        }
-
-        [RelayCommand]
-        public void RockTheme()
-        {
-            return;
         }
 
         /// <summary>

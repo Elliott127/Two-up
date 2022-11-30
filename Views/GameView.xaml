@@ -8,7 +8,7 @@
     xmlns:controls="clr-namespace:Game.Controls"
     x:Class="Game.Views.GameView"
     x:DataType="viewModel:GameViewModel"
-    BackgroundImageSource="{Binding BackgroundImage}">
+    BackgroundImageSource="space_background.png">
     <ContentPage.Resources>
         <ResourceDictionary>
             <ResourceDictionary
@@ -17,16 +17,16 @@
     </ContentPage.Resources>
     <ContentPage.MenuBarItems>
         <MenuBarItem
-            Text="UI Changes">
+            Text="Change UI">
             <MenuFlyoutItem
                 Text="Space Theme"
-                Command="{Binding SpaceThemeCommand}" />
+                Clicked="SpaceTheme" />
             <MenuFlyoutItem
                 Text="Coin Theme"
-                Command="{Binding CoinThemeCommand}" />
+                Clicked="CoinTheme" />
             <MenuFlyoutItem
-                Text="Rock Theme"
-                Command="{Binding RockThemeCommand}" />
+                Text="Tech Theme"
+                Clicked="TechTheme" />
         </MenuBarItem>
     </ContentPage.MenuBarItems>
     <ScrollView
