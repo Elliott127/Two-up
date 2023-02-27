@@ -42,7 +42,8 @@
                         Grid.ColumnSpan="4"
                         Text="{Binding Username}"
                         FontSize="18"
-                        WidthRequest="300" />
+                        WidthRequest="300"
+                        TextColor="Black"/>
                     <Label
                         Grid.Row="2"
                         Text="Password:"
@@ -57,7 +58,8 @@
                         FontSize="18"
                         WidthRequest="300"
                         IsPassword="True"
-                        ReturnCommand="{Binding LoginCommand}" />
+                        ReturnCommand="{Binding LoginCommand}"
+                        TextColor="Black" />
                 </Grid>
                 <HorizontalStackLayout
                     Padding="10"
