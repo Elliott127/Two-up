@@ -8,12 +8,10 @@
     xmlns:controls="clr-namespace:Game.Controls"
     x:Class="Game.Views.GameView"
     x:DataType="viewModel:GameViewModel"
-    BackgroundImageSource="{Binding BackgroundImage}">
+    BackgroundImageSource="space_background.png">
     <ContentPage.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary
-                Source="../Resources/CustomStyles/GameViewStyles.xaml" />
-        </ResourceDictionary>
+        <ResourceDictionary 
+            Source="../Resources/ResourceDictionaries/SpaceResourceDictionary.xaml" />
     </ContentPage.Resources>
     <ContentPage.MenuBarItems>
         <MenuBarItem
@@ -45,7 +43,7 @@
                         <Label
                             Style="{DynamicResource Label}"
                             Text="{Binding Selection}" />
-                        
+
                     </VerticalStackLayout>
                     <VerticalStackLayout>
                         <Label

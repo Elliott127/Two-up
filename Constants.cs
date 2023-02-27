@@ -13,6 +13,7 @@ namespace Game
         public const string selectionBase = "Selection: None";
         public const string selectionHeads = "Selection: Heads";
         public const string selectionTails = "Selection: Tails";
+        public const string spaceResourceDictionaryUri = "../Resources/ResourceDictionaries/SpaceResourceDictionary.xaml";
 
     }
 }

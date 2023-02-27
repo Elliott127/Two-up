@@ -40,7 +40,8 @@ namespace Game.ViewModels
             backgroundImage = "space_background.png";
             userInfo = await userService.GetUserInfo();
             Username = Constants.playerLabel + userInfo[0];
-            if(score == 0)
+            if (score == 0)
+
             { 
                 Score = int.Parse(userInfo[1]);
             }
