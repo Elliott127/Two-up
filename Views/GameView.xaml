@@ -15,10 +15,16 @@
     </ContentPage.Resources>
     <ContentPage.MenuBarItems>
         <MenuBarItem
-            Text="UI Changes">
+            Text="Change UI">
             <MenuFlyoutItem
-                Text="Dark Mode"
-                Command="{Binding SetDarkModeCommand}" />
+                Text="Space Theme"
+                Clicked="SpaceTheme" />
+            <MenuFlyoutItem
+                Text="Coin Theme"
+                Clicked="CoinTheme" />
+            <MenuFlyoutItem
+                Text="Tech Theme"
+                Clicked="TechTheme" />
         </MenuBarItem>
     </ContentPage.MenuBarItems>
     <ScrollView
@@ -56,9 +62,14 @@
                             MaximumWidthRequest="400"
                             Style="{DynamicResource Border}"
                             Padding="10">
-                            <Image
-                                Source="dotnet_bot.png"
-                                MaximumHeightRequest="200" />
+                            <HorizontalStackLayout>
+                                <Image
+                                    Source="dotnet_bot.png"
+                                    MaximumHeightRequest="200" />
+                                <Image
+                                    Source="dotnet_bot.png"
+                                    MaximumHeightRequest="200" />
+                            </HorizontalStackLayout>
                         </Border>
                         <VerticalStackLayout>
                             <HorizontalStackLayout

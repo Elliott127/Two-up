@@ -16,4 +16,19 @@ public partial class GameView: ContentPage
 		var gameViewModel = this.BindingContext as GameViewModel;
 		await gameViewModel.InitialiseAsync(null);
     }
+    private void CoinTheme(object sender, EventArgs e)
+    {
+        this.BackgroundImageSource = "coin_background_game.png";
+    }
+    private void TechTheme(object sender, EventArgs e)
+    {
+        this.BackgroundImageSource = "tech_background.png";
+    }
+    private void SpaceTheme(object sender, EventArgs e)
+    {
+        this.BackgroundImageSource = "space_background.png";
+        
+    }
 }
+
+    

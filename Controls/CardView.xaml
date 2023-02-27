@@ -8,6 +8,8 @@
     Padding="30,20"
     Stroke="#E5E4E2"
     StrokeShape="RoundRectangle 40">
+    <Label
+        Text="Hello" />
     <Border.Shadow>
         <Shadow
             Brush="Black"

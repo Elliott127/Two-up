@@ -33,6 +33,9 @@
         <Setter
             Property="FontSize"
             Value="18" />
+        <Setter
+            Property="TextColor"
+            Value="Black" />
     </Style>
     <Style
         x:Key="Border"

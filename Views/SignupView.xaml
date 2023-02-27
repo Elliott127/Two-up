@@ -28,6 +28,9 @@
                 <Setter
                     Property="FontFamily"
                     Value="MontserratBold" />
+                <Setter
+                    Property="TextColor"
+                    Value="Black" />
             </Style>
             <Style
                 TargetType="Entry">
@@ -43,6 +46,9 @@
                 <Setter
                     Property="FontSize"
                     Value="18" />
+                <Setter
+                    Property="TextColor"
+                    Value="Black" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
