@@ -27,6 +27,12 @@ namespace Game.ViewModels
         [ObservableProperty]
         private string outcome = Constants.outcomeBase + "None";
 
+        [ObservableProperty]
+        private Image firstImage = new();
+
+        [ObservableProperty]
+        private Image secondImage = new();
+
         public GameViewModel(IUserService userService)
         {
             this.userService = userService;
@@ -43,6 +49,8 @@ namespace Game.ViewModels
             }
             ScoreLabel = Constants.scoreBase + Score;
             Selection = Constants.selectionBase;
+            firstImage.Source = "heads.png";
+            secondImage.Source = "heads.png";
         }
 
         /// <summary>
@@ -88,7 +96,7 @@ namespace Game.ViewModels
                 await App.Current.MainPage.DisplayAlert("Invalid selection", "Please make a selection", "OK");
                 return;
             }
-            CheckOutcome(coins);
+            await CheckOutcome(coins);
         }
 
         /// <summary>
@@ -104,11 +112,20 @@ namespace Game.ViewModels
         /// <summary>
         /// Checks to see if the player should get their score increased
         /// </summary>
-        private void CheckOutcome(bool[] coins)
+        private async Task CheckOutcome(bool[] coins)
         {
+            await Task.WhenAll
+                (
+                 firstImage.RotateXTo(360, 800),
+                 secondImage.RotateXTo(360, 800)
+                );
+            firstImage.RotationX = 0;
+            secondImage.RotationX = 0;
             if (coins[0] != coins[1])
             {
                 Outcome = Constants.outcomeOdd;
+                firstImage.Source = "heads.png";
+                secondImage.Source = "tails.png";
                 return;
             }
             else if ((coins[0] && isHeads) || !coins[0] && isTails)
@@ -117,7 +134,20 @@ namespace Game.ViewModels
                 UpdateScore();
                 Selection = Constants.selectionBase;
             }
+            
             Outcome = (coins[0]) ? Constants.outcomeHeads : Constants.outcomeTails;
+
+            if(Outcome == Constants.outcomeHeads)
+            {
+                firstImage.Source = "heads.png";
+                secondImage.Source = "heads.png";
+            }
+            else
+            {
+                firstImage.Source = "tails.png";
+                secondImage.Source = "tails.png";
+            }
+            
         }
 
         /// <summary>
@@ -136,7 +166,7 @@ namespace Game.ViewModels
         private static bool[] FlipCoins()
         {
             bool[] coins = new bool[2];
-            coins[0] = (RandomNumberGenerator() % 2 == 1);
+            coins[0] = (RandomNumberGenerator() % 2 == 0);
             coins[1] = (RandomNumberGenerator() % 2 == 0);
 
             return coins;

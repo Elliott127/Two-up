@@ -62,13 +62,17 @@
                             MaximumWidthRequest="400"
                             Style="{DynamicResource Border}"
                             Padding="10">
-                            <HorizontalStackLayout>
+                            <HorizontalStackLayout
+                                HorizontalOptions="Center"
+                                Padding="10">
                                 <Image
-                                    Source="dotnet_bot.png"
-                                    MaximumHeightRequest="200" />
+                                    RotationX="{Binding FirstImage.RotationX}"
+                                    Source="{Binding FirstImage.Source}"
+                                    MaximumHeightRequest="180" />
                                 <Image
-                                    Source="dotnet_bot.png"
-                                    MaximumHeightRequest="200" />
+                                    RotationX="{Binding SecondImage.RotationX}"
+                                    Source="{Binding SecondImage.Source}"
+                                    MaximumHeightRequest="180" />
                             </HorizontalStackLayout>
                         </Border>
                         <VerticalStackLayout>
