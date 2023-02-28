@@ -49,7 +49,6 @@
                         <Label
                             Style="{DynamicResource Label}"
                             Text="{Binding Selection}" />
-
                     </VerticalStackLayout>
                     <VerticalStackLayout>
                         <Label
