@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Game.Resources.CustomStyles.LoginViewStyles">
+    <Style
+        x:Key="loginPageTitle"
+        TargetType="Label">
+        <Setter
+            Property="HorizontalOptions"
+            Value="Center" />
+        <Setter
+            Property="VerticalOptions"
+            Value="Center" />
+        <Setter
+            Property="FontSize"
+            Value="36" />
+        <Setter
+            Property="FontFamily"
+            Value="MontserratBold" />
+        <Setter
+            Property="Padding"
+            Value="10" />
+        <Setter
+            Property="TextColor"
+            Value="Black" />
+    </Style>
+    <Style
+        x:Key="loginLabel"
+        TargetType="Label">
+        <Setter
+            Property="FontSize"
+            Value="18" />
+        <Setter
+            Property="Padding"
+            Value="10" />
+        <Setter
+            Property="FontFamily"
+            Value="MontserratBold" />
+        <Setter
+            Property="HorizontalOptions"
+            Value="Center" />
+        <Setter
+            Property="VerticalOptions"
+            Value="Center" />
+        <Setter
+            Property="TextColor"
+            Value="Black" />
+    </Style>
+    <Style
+        TargetType="Button">
+        <Setter
+            Property="WidthRequest"
+            Value="125" />
+        <Setter
+            Property="Padding"
+            Value="10" />
+        <Setter
+            Property="FontSize"
+            Value="16" />
+        <Setter
+            Property="Margin"
+            Value="25,10" />
+    </Style>
+</ResourceDictionary>
