@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?xaml-comp compile="true" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:Game.ViewModels"
+    xmlns:control="clr-namespace:Game.Controls"
+    x:Class="Game.Views.LoginView"
+    x:DataType="viewModels:LoginViewModel"
+    BackgroundImageSource="coin_background.png">
+    <ContentPage.Resources>
+        <ResourceDictionary
+            Source="../Resources/CustomStyles/LoginViewStyles.xaml" />
+    </ContentPage.Resources>
+
+    <VerticalStackLayout
+        VerticalOptions="Center">
+        <control:CardView
+            WidthRequest="750"
+            MinimumHeightRequest="550">
+            <VerticalStackLayout
+                VerticalOptions="Center">
+                <Label
+                    Style="{StaticResource loginPageTitle}"
+                    Text="Login to play Two-up"
+                    Padding="20"
+                    Margin="10" />
+                <Grid
+                    RowDefinitions="*,*,*,*"
+                    RowSpacing="2"
+                    ColumnDefinitions="*,*,*,*,*,*,*,*">
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Grid.ColumnSpan="2"
+                        Text="Username:"
+                        Style="{StaticResource loginLabel}" />
+                    <Entry
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Grid.ColumnSpan="4"
+                        Text="{Binding Username}"
+                        FontSize="18"
+                        WidthRequest="300"
+                        TextColor="Black"/>
+                    <Label
+                        Grid.Row="2"
+                        Text="Password:"
+                        Grid.Column="2"
+                        Grid.ColumnSpan="2"
+                        Style="{StaticResource loginLabel}" />
+                    <Entry
+                        Grid.Row="3"
+                        Grid.Column="2"
+                        Grid.ColumnSpan="4"
+                        Text="{Binding Password}"
+                        FontSize="18"
+                        WidthRequest="300"
+                        IsPassword="True"
+                        ReturnCommand="{Binding LoginCommand}"
+                        TextColor="Black" />
+                </Grid>
+                <HorizontalStackLayout
+                    Padding="10"
+                    HorizontalOptions="Center">
+                    <Button
+                        Text="Login"
+                        Command="{Binding LoginCommand}" />
+                    <Button
+                        Text="Signup"
+                        Command="{Binding SignupCommand}" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </control:CardView>
+    </VerticalStackLayout>
+</ContentPage>
