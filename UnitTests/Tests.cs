@@ -1,6 +1,3 @@
-using Game.ViewModels;
-using Game.Services;
-
 namespace UnitTests
 {
     public class Tests
