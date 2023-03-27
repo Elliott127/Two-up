@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Game/bin/Debug/net6.0-ios/iossimulator-x64/Game.app
+/Game/bin/Debug/net6.0-ios/iossimulator-x64
+/Game/bin/Debug/net6.0-maccatalyst/maccatalyst-x64
+/Game/bin/Debug/net6.0-windows10.0.19041.0/win10-x64
+/Game/bin/Debug/net6.0-android
+/Game/bin/Debug/net6.0
+/.vs/slnx.sqlite
+/.vs/Twoup/v17/.wsuo
+/UnitTests/bin/Debug
