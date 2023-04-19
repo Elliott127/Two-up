@@ -14,6 +14,7 @@ namespace Game
         public const string selectionHeads = "Selection: Heads";
         public const string selectionTails = "Selection: Tails";
         public const string spaceResourceDictionaryUri = "../Resources/ResourceDictionaries/SpaceResourceDictionary.xaml";
-
+        public const string selectedThemeText = "Theme Selected: ";
+        public const string folderPath = @"C:\SavedThemes";
     }
 }

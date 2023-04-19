@@ -13,6 +13,9 @@ namespace Game.ViewModels
         private bool isTails = false;
 
         [ObservableProperty]
+        private string playerTheme = string.Empty;
+
+        [ObservableProperty]
         private int score = 0;
 
         [ObservableProperty]
@@ -33,6 +36,9 @@ namespace Game.ViewModels
         [ObservableProperty]
         private Image secondImage = new();
 
+        [ObservableProperty]
+        private string selectedTheme = string.Empty;
+
         public GameViewModel(IUserService userService)
         {
             this.userService = userService;
@@ -46,10 +52,47 @@ namespace Game.ViewModels
             { 
                 Score = int.Parse(userInfo[1]);
             }
+            SelectedTheme = Constants.selectedThemeText + playerTheme;
             ScoreLabel = Constants.scoreBase + Score;
             Selection = Constants.selectionBase;
             firstImage.Source = "heads.png";
             secondImage.Source = "heads.png";
+        }
+
+        /// <summary>
+        /// Updates the theme of the player and writes it in a text file
+        /// </summary>
+        /// <param name="contents"></param>
+        public void UpdateTheme(string contents)
+        {
+            PlayerTheme = contents;
+            string folderPath = Constants.folderPath;
+            string filePath = Path.Combine(folderPath, $"{Username}.txt");
+            if (Directory.Exists(folderPath))
+            {
+                WriteToFile(filePath, contents);
+            }
+            else
+            {
+                Directory.CreateDirectory(folderPath);
+                WriteToFile(filePath, contents);
+            }
+        }
+
+        /// <summary>
+        /// Reads a files contents and returns them
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public string ReadFile()
+        {
+            string folderPath = Constants.folderPath;
+            string filePath = Path.Combine(folderPath, $"{Username}.txt");
+            if (File.Exists(filePath))
+            {
+                return File.ReadAllText(filePath);
+            }
+            return string.Empty;
         }
 
         /// <summary>
@@ -181,6 +224,16 @@ namespace Game.ViewModels
         {
             Random rand = new();
             return rand.Next(1,11);
+        }
+        
+        /// <summary>
+        /// Writes to a file
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="contents"></param>
+        private static void WriteToFile(string filePath, string contents)
+        {
+            File.WriteAllText(filePath, contents);
         }
     }
 }

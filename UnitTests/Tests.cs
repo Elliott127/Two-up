@@ -5,7 +5,6 @@ namespace UnitTests
 {
     public class Tests
     {
-        []
         public void Test1(GameViewModel viewModel, IUserService userService)
         {
             viewModel = new GameViewModel(userService);
