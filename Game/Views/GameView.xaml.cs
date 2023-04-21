@@ -4,6 +4,8 @@ namespace Game.Views;
 
 public partial class GameView: ContentPage
 {
+    private bool hasAppeared = false;
+    private string contents = string.Empty;
 	public GameView(GameViewModel viewModel)
 	{
 		InitializeComponent();
@@ -15,7 +17,7 @@ public partial class GameView: ContentPage
         base.OnAppearing();
 		var gameViewModel = this.BindingContext as GameViewModel;
 		await gameViewModel.InitialiseAsync(null);
-        this.SelectTheme();
+        this.SelectTheme(gameViewModel.ReadFile());
     }
     private void CoinTheme(object sender, EventArgs e)
     {
@@ -37,14 +39,13 @@ public partial class GameView: ContentPage
         
     }
 
-    private void SelectTheme()
+    private void SelectTheme(string contents)
     {
-        var gameViewModel = this.BindingContext as GameViewModel;
-
-        switch (gameViewModel.ReadFile())
+        switch (contents)
         {
             case "space theme":
                 this.SpaceTheme(null, null);
+
                 break;
             case "tech theme":
                 this.TechTheme(null, null);
