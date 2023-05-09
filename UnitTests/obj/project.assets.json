@@ -6605,23 +6605,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ellio\\.nuget\\packages\\": {},
+    "C:\\Users\\nyowi\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "I:\\More Repos\\UnitTests\\UnitTests.csproj",
+      "projectUniqueName": "C:\\Repos\\Twoup\\UnitTests\\UnitTests.csproj",
       "projectName": "UnitTests",
-      "projectPath": "I:\\More Repos\\UnitTests\\UnitTests.csproj",
-      "packagesPath": "C:\\Users\\ellio\\.nuget\\packages\\",
-      "outputPath": "I:\\More Repos\\UnitTests\\obj\\",
+      "projectPath": "C:\\Repos\\Twoup\\UnitTests\\UnitTests.csproj",
+      "packagesPath": "C:\\Users\\nyowi\\.nuget\\packages\\",
+      "outputPath": "C:\\Repos\\Twoup\\UnitTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ellio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\nyowi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6637,8 +6637,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "I:\\More Repos\\Game\\Game.csproj": {
-              "projectPath": "I:\\More Repos\\Game\\Game.csproj"
+            "C:\\Repos\\Twoup\\Game\\Game.csproj": {
+              "projectPath": "C:\\Repos\\Twoup\\Game\\Game.csproj"
             }
           }
         }

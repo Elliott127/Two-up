@@ -48,11 +48,12 @@ namespace Game.ViewModels
         {
             userInfo = await userService.GetUserInfo();
             Username = Constants.playerLabel + userInfo[0];
+            playerTheme = this.ReadFile();
             if (score == 0)
             { 
                 Score = int.Parse(userInfo[1]);
             }
-            SelectedTheme = Constants.selectedThemeText + playerTheme;
+            SelectedTheme = Constants.selectedThemeText + playerTheme.ToUpper();
             ScoreLabel = Constants.scoreBase + Score;
             Selection = Constants.selectionBase;
             firstImage.Source = "heads.png";
@@ -65,9 +66,8 @@ namespace Game.ViewModels
         /// <param name="contents"></param>
         public void UpdateTheme(string contents)
         {
-            PlayerTheme = contents;
             string folderPath = Constants.folderPath;
-            string filePath = Path.Combine(folderPath, $"{Username}.txt");
+            string filePath = Path.Combine(folderPath, $"{userInfo[0]}.txt");
             if (Directory.Exists(folderPath))
             {
                 WriteToFile(filePath, contents);
@@ -87,12 +87,10 @@ namespace Game.ViewModels
         public string ReadFile()
         {
             string folderPath = Constants.folderPath;
-            string filePath = Path.Combine(folderPath, $"{Username}.txt");
-            if (File.Exists(filePath))
-            {
-                return File.ReadAllText(filePath);
-            }
-            return string.Empty;
+            string filePath = Path.Combine(folderPath, $"{userInfo[0]}.txt");
+            
+            return File.ReadAllText(filePath);
+            
         }
 
         /// <summary>
@@ -231,8 +229,9 @@ namespace Game.ViewModels
         /// </summary>
         /// <param name="filePath"></param>
         /// <param name="contents"></param>
-        private static void WriteToFile(string filePath, string contents)
+        private void WriteToFile(string filePath, string contents)
         {
+            PlayerTheme = contents.ToUpper();
             File.WriteAllText(filePath, contents);
         }
     }
