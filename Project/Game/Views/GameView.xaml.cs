@@ -4,8 +4,6 @@ namespace Game.Views;
 
 public partial class GameView: ContentPage
 {
-    private bool hasAppeared = false;
-    private string contents = string.Empty;
 	public GameView(GameViewModel viewModel)
 	{
 		InitializeComponent();

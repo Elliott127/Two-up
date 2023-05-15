@@ -54,7 +54,7 @@ namespace Game.ViewModels
             } catch(Exception ex)
             {
                 playerTheme = "space theme";
-                Console.WriteLine("User doesnt have theme saved");
+                Console.WriteLine("User doesn't have theme saved");
             }
             if (score == 0)
             { 
@@ -73,17 +73,24 @@ namespace Game.ViewModels
         /// <param name="contents"></param>
         public void UpdateTheme(string contents)
         {
-            string folderPath = Constants.folderPath;
-            string filePath = Path.Combine(folderPath, $"{userInfo[0]}.txt");
-            if (Directory.Exists(folderPath))
+            try
             {
-                WriteToFile(filePath, contents);
-            }
-            else
+                string folderPath = Constants.folderPath;
+                string filePath = Path.Combine(folderPath, $"{userInfo[0]}.txt");
+                if (Directory.Exists(folderPath))
+                {
+                    WriteToFile(filePath, contents);
+                }
+                else
+                {
+                    Directory.CreateDirectory(folderPath);
+                    WriteToFile(filePath, contents);
+                }
+            } catch(Exception ex)
             {
-                Directory.CreateDirectory(folderPath);
-                WriteToFile(filePath, contents);
+                Console.WriteLine(ex.ToString());
             }
+            
         }
 
         /// <summary>
@@ -93,10 +100,18 @@ namespace Game.ViewModels
         /// <returns></returns>
         public string ReadFile()
         {
-            string folderPath = Constants.folderPath;
-            string filePath = Path.Combine(folderPath, $"{userInfo[0]}.txt");
-            
-            return File.ReadAllText(filePath);
+            try
+            {
+                string folderPath = Constants.folderPath;
+                string filePath = Path.Combine(folderPath, $"{userInfo[0]}.txt");
+
+                return File.ReadAllText(filePath);
+            }
+            catch(Exception ex) 
+            {
+                Console.Error.WriteLine(ex.Message);
+                throw;
+            }
             
         }
 
