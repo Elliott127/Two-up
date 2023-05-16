@@ -32,9 +32,6 @@
   <ItemGroup>
     <Folder Include="ModelTests\UserServiceTests\" />
     <Folder Include="ViewModelTests\SignupViewModelTests\" />
-    <Folder Include="ViewTests\LoginViewTests\" />
-    <Folder Include="ViewTests\GameViewTests\" />
-    <Folder Include="ViewTests\SignupViewTests\" />
   </ItemGroup>
 
 </Project>

@@ -5,7 +5,7 @@ using Game.Views;
 
 namespace Game.ViewModels
 {
-    public sealed partial class LoginViewModel : ObservableObject
+    public partial class LoginViewModel : ObservableObject
     {
         private readonly IUserService userService;
 
@@ -21,7 +21,12 @@ namespace Game.ViewModels
         }
 
         [RelayCommand]
-        private async void Login()
+        public async Task Login()
+        {
+            await AttemptLogin();
+        }
+
+        public async Task AttemptLogin()
         {
             if (string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password))
             {
@@ -41,7 +46,7 @@ namespace Game.ViewModels
             Password = string.Empty;
         }
         [RelayCommand]
-        private async void Signup()
+        private async Task Signup()
         {
             await Shell.Current.GoToAsync(nameof(SignupView), true);
         }
