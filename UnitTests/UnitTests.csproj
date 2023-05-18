@@ -10,6 +10,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ModelTests\**" />
+    <Compile Remove="ViewModelTests\SignupViewModelTests\**" />
+    <EmbeddedResource Remove="ModelTests\**" />
+    <EmbeddedResource Remove="ViewModelTests\SignupViewModelTests\**" />
+    <MauiCss Remove="ModelTests\**" />
+    <MauiCss Remove="ViewModelTests\SignupViewModelTests\**" />
+    <MauiXaml Remove="ModelTests\**" />
+    <MauiXaml Remove="ViewModelTests\SignupViewModelTests\**" />
+    <None Remove="ModelTests\**" />
+    <None Remove="ViewModelTests\SignupViewModelTests\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FakeItEasy" Version="7.4.0" />
     <PackageReference Include="FluentAssertions" Version="6.11.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
@@ -27,11 +40,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Game\Game.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ModelTests\UserServiceTests\" />
-    <Folder Include="ViewModelTests\SignupViewModelTests\" />
   </ItemGroup>
 
 </Project>
