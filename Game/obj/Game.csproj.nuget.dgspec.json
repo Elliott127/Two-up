@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Repos\\Twoup\\Game\\Game.csproj": {}
+    "I:\\Repos\\Game\\Project\\Game\\Game.csproj": {}
   },
   "projects": {
-    "C:\\Repos\\Twoup\\Game\\Game.csproj": {
+    "I:\\Repos\\Game\\Project\\Game\\Game.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Repos\\Twoup\\Game\\Game.csproj",
+        "projectUniqueName": "I:\\Repos\\Game\\Project\\Game\\Game.csproj",
         "projectName": "Game",
-        "projectPath": "C:\\Repos\\Twoup\\Game\\Game.csproj",
-        "packagesPath": "C:\\Users\\nyowi\\.nuget\\packages\\",
-        "outputPath": "C:\\Repos\\Twoup\\Game\\obj\\",
+        "projectPath": "I:\\Repos\\Game\\Project\\Game\\Game.csproj",
+        "packagesPath": "C:\\Users\\ellio\\.nuget\\packages\\",
+        "outputPath": "I:\\Repos\\Game\\Project\\Game\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\nyowi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ellio\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -71,6 +71,10 @@
               "target": "Package",
               "version": "[6.0.552, )",
               "autoReferenced": true
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.18.4, )"
             },
             "SQLitePCLRaw.core": {
               "target": "Package",
@@ -158,6 +162,10 @@
               "target": "Package",
               "version": "[6.0.552, )",
               "autoReferenced": true
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.18.4, )"
             },
             "SQLitePCLRaw.core": {
               "target": "Package",
@@ -268,6 +276,10 @@
               "target": "Package",
               "version": "[10.0.22000.194, )",
               "autoReferenced": true
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.18.4, )"
             },
             "SQLitePCLRaw.core": {
               "target": "Package",
